@@ -17,4 +17,9 @@ The model consists of four ordinary differential equations and contains a total 
 
 ## Objective goal 
 
-The bifurcation analysis showed that the system admits two equilibrium solutions: an uninfected stead state with no virus present and endemically infected steady state. Combination of parameters $N_V, \mu_T, \mu_V, k_1$ and $k_2$ on the intervals defined above can determine the existence and stabilities of the model. Our primary goal 
+The bifurcation analysis showed that the system admits two equilibrium solutions: an uninfected stead state with no virus present and endemically infected steady state. Combination of parameters $N_V, \mu_T, \mu_V, k_1$ and $k_2$ on the intervals defined above can determine the existence and stabilities of the model. Our primary goal is to find which parameters are important to the free viruses so we can focus in finding better estimates. We implemented 3 methods: 
+1. DeFAST
+2. Sobol's method
+3. Derivative global sensitivity measure. 
+
+## Results
