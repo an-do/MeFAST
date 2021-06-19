@@ -1,5 +1,5 @@
 # Cancer model
-de Pillis, Lisette G., Ami E. Radunskaya, and Charles L. Wiseman. "A validated mathematical model of cell-mediated immune response to tumor growth." Cancer research 65.17 (2005): 7950-7958.
+
 
 # Description
 The model describes the cell-mediated immune response to the tumor growth. It focuses on the role of natural killer (NK) and CD8+ T cells in tumor surveillance. 
@@ -17,3 +17,6 @@ There are 15 parameters in the model, whose ranges of uncertainties are discusse
 3. Derivative global sensitivity measure. 
  
 # Result
+
+# Reference 
+de Pillis, Lisette G., Ami E. Radunskaya, and Charles L. Wiseman. "A validated mathematical model of cell-mediated immune response to tumor growth." Cancer research 65.17 (2005): 7950-7958.
