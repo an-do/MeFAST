@@ -11,15 +11,15 @@ We present a multi-method framework that incorporates three global sensitivity a
 In MultiGSA we demonstrate the full methodology and workflow using two example mathematical models of increasing complexity. These models include HIV progression and cancer growth. The computational framework we provide generates graphics for visualizing and comparing the results of all three sensitivity analysis algorithms (DGSM, Sobol, and DeFAST).
 
 ## Details
-This repository contains 2 folders associated with the two mathematical model examples that we discuss in the manuscript. Each directory provides the following folder: 
+This repository contains 2 directories associated with the two mathematical model examples that we discuss in the manuscript. Each directory contains the following folders: 
 1.	Figures: Generate figures of ranking of important parameters by each method (DGSM, Sobol, and DeFAST) as reported in the manuscript. The analysis is done based on the pre-generated data in this study. 
-2.	DeFAST, DGSM, SobolMethod folders: we post the implementation of each method (DGSM, DeFAST, Sobol) in these folders (DeFAST, DGSM, Sobolmethod) under both HIV and Cancer model directories to help reproduce our data, analysis, and generate sensitivity. 
+2.	DeFAST, DGSM, SobolMethod folders: implementation of each method (DGSM, DeFAST, Sobol) is to help reproduce our results. 
 
 ## Reproducing 
 1.	If you would like to reproduce our figures in the manuscript, please go to either HIV or Cancer model directory, under Figures folder, call the function combine_methods_fig.m. 
-2.	If you would like to reproduce the ranking for any particular method independently, for example, DeFAST, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder under Figures directory of either model and call the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m)  to generate DeFAST analysis figure as illustrated in the manuscript. 
+2.	If you would like to reproduce the ranking for any particular method, for example, DeFAST, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder under Figures directory of either model and call the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m) to generate DeFAST analysis figure as illustrated in the manuscript. 
 3.	Similarly, you can reproduce the ranking result by Sobol’s method and DGSM by visiting Sobol_HIV_figures (or Sobol_Cancer_figures) and DGSM_HIV_figures (or DGSM_Cancer_figures) folder under Figures directory then call the functions Sobol_HIV_figs.m (or Sobol_Cancer_figs.m)  and Figure_DGSM_HIV.m (or Figure_DGSM_Cancer.m)
-4.	Please notes, all figures generated from the Figures folder are based on the pre-simulated sensitivity indices in this study. To reproduce our study, model simulations and sensitivity measures, please visit each method folder such as DGSM, DeFAST or SobolMethod and call the following functions:
+4.	Please notes, all figures generated from the Figures folder are based on the pre-simulated sensitivity indices in this study. To reproduce our study, model simulations and sensitivity indices, please visit each method folder such as DGSM, DeFAST or SobolMethod and call the following functions:
     - DeFAST_Cancer_main.m or DeFAST_HIV_main.m: DeFAST study for cancer and HIV model
     - DGSM study for cancer and HIV model
     - Sobol_Cancer_main.m or Sobol_HIV_main.m: Sobol’s method study for cancer and HIV model
