@@ -26,7 +26,13 @@ This repository contains 2 directories associated with the two mathematical mode
 
 Here is the overview of the repo: 
 ![repo_overview](https://user-images.githubusercontent.com/20584697/122489268-1aff9900-cf94-11eb-8f63-c20b665bec6e.png) 
-    
+
+## DeFAST algorithm 
+
+## Sobol's method algorithm 
+
+## DGSM algorithm
+
 ## References
 1.	S. Marino, I. B. Hogue, C. J. Ray, D. E. Kirschner, A methodology for performing global uncertainty and sensitivity analysis in systems biology, Journal of theoretical biology 254 (1) (2008) 178–196.
 2.	Saltelli, P. Annoni, I. Azzini, F. Campolongo, M. Ratto, S. Tarantola, Variance based sensitivity analysis of model output. design and estimator for the total sensitivity index, Computer Physics Communications 181 (2) (2010) 259–270.
