@@ -1,5 +1,5 @@
 # HIV model 
-
+ 
 
 ## Description 
 We examine the human immunodeficiency HIV infection model. 
@@ -23,3 +23,7 @@ The bifurcation analysis showed that the system admits two equilibrium solutions
 3. Derivative global sensitivity measure. 
 
 ## Results
+
+## References 
+1. A. S. Perelson, D. E. Kirschner, R. De Boer, Dynamics of hiv infection of cd4+ t cells, Mathematical biosciences 114 (1) (1993) 81–125.
+2. S. Marino, I. B. Hogue, C. J. Ray, D. E. Kirschner, A methodol- ogy for performing global uncertainty and sensitivity analysis in systems biology, Journal of theoretical biology 254 (1) (2008) 178–196.
