@@ -16,12 +16,12 @@ This repository contains 2 directories associated with the two mathematical mode
 2.	DeFAST, DGSM, SobolMethod folders: implementation of each method (DGSM, DeFAST, Sobol) is to help reproduce our results. 
 
 ## Reproducing 
-1.	If you would like to reproduce our figures in the manuscript, please go to either HIV or Cancer model directory, under Figures folder, call the function combine_methods_fig.m. 
-2.	If you would like to reproduce the ranking for any particular method, for example, DeFAST, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder under Figures directory of either model and call the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m) to generate DeFAST analysis figure as illustrated in the manuscript. 
-3.	Similarly, you can reproduce the ranking result by Sobol’s method and DGSM by visiting Sobol_HIV_figures (or Sobol_Cancer_figures) and DGSM_HIV_figures (or DGSM_Cancer_figures) folder under Figures directory then call the functions Sobol_HIV_figs.m (or Sobol_Cancer_figs.m)  and Figure_DGSM_HIV.m (or Figure_DGSM_Cancer.m)
-4.	Please notes, all figures generated from the Figures folder are based on the pre-simulated sensitivity indices in this study. To reproduce our study, model simulations and sensitivity indices, please visit each method folder such as DGSM, DeFAST or SobolMethod and call the following functions:
+1.	If you would like to reproduce combine ranking result as in the manuscript, please go to either HIV or Cancer model directory, under Figures folder, call the function combine_methods_fig.m. 
+2.	If you would like to reproduce the ranking result for any particular method, for example, DeFAST, also under Figures folder of either model, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder and call the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m) to generate DeFAST analysis figure as illustrated in the manuscript. 
+3.	Similarly, you can reproduce the ranking result by Sobol’s method and DGSM.
+4.	Please note, all figures generated from the Figures folder are based on the pre-simulated data. To reproduce our study, simulations and sensitivity indices, please visit the following folder: DGSM, DeFAST or SobolMethod and call the following functions:
     - DeFAST_Cancer_main.m or DeFAST_HIV_main.m: DeFAST study for cancer and HIV model
-    - DGSM study for cancer and HIV model
+    - DGSM_Cancer_main.m or DGSM_HIV_main.m study for cancer and HIV model
     - Sobol_Cancer_main.m or Sobol_HIV_main.m: Sobol’s method study for cancer and HIV model
 
 Here is the overview of the repo: 
