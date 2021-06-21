@@ -31,6 +31,7 @@ Here is the overview of the repo:
 ![efast_algorithm](https://user-images.githubusercontent.com/20584697/122826422-f8bd9200-d297-11eb-989a-4f01365e5229.png)
 
 ## Sobol's method algorithm 
+![Sobol_scheme](https://user-images.githubusercontent.com/20584697/122826524-1db20500-d298-11eb-9ed7-9a3f9b6c90cb.png)
 
 ## DGSM algorithm
 
