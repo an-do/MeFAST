@@ -34,6 +34,7 @@ Here is the overview of the repo:
 ![Sobol_scheme](https://user-images.githubusercontent.com/20584697/122826524-1db20500-d298-11eb-9ed7-9a3f9b6c90cb.png)
 
 ## DGSM algorithm
+![derivative_scheme](https://user-images.githubusercontent.com/20584697/122826650-3fab8780-d298-11eb-8939-e581599349f8.png)
 
 ## References
 1.	S. Marino, I. B. Hogue, C. J. Ray, D. E. Kirschner, A methodology for performing global uncertainty and sensitivity analysis in systems biology, Journal of theoretical biology 254 (1) (2008) 178–196.
