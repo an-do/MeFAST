@@ -28,6 +28,7 @@ Here is the overview of the repo:
 ![repo_overview](https://user-images.githubusercontent.com/20584697/122489268-1aff9900-cf94-11eb-8f63-c20b665bec6e.png) 
 
 ## DeFAST algorithm 
+![efast_algorithm](https://user-images.githubusercontent.com/20584697/122826422-f8bd9200-d297-11eb-989a-4f01365e5229.png)
 
 ## Sobol's method algorithm 
 
