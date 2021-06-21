@@ -40,6 +40,29 @@ to each parameter.
 #### How to tune DeFAST 
 1. *Sampling parameter values using sinusoidal search curves*. A unique feature
 of eFAST is to use Fourier transformation functions (namely, search curves) to generate sampling values for each parameter over their feasible ranges. We use the following functions: 
+<img width="699" alt="Screen Shot 2021-06-21 at 3 24 45 PM" src="https://user-images.githubusercontent.com/20584697/122835243-daaa5e80-d2a4-11eb-952b-bddb8f17b8bf.png">
+
+where: 
+* s is a random variable uniformly distributioned between (−π,π),
+* F^(−1)(·) is the parameter’s inverse cumulative distribution function. We chose uniform distribution because we do not know specific information about the model parameters’
+distributions.
+* ωi and φi are the function’s frequency and phase shift, respectively. 
+
+Equation (4) generates a uniform sample between [0,1], which equation (5) uses as an input to generate a sampling value for Xi within the range of uncertainty.
+
+2. *Sampling frequencies* The sampling curves frequencies are the critical components of the scheme, which are used to estimate the partial variance contributed by the parameter Xi and the complementary parameters X∼i. We pre-generate a list of frequencies as proposed by Saltelli et al. that must satisfy the following conditions: 
+    * The highest frequency ωmax is be assigned to the parameter of interest $X_i$ while the lower ones are assigned to the remaining parameters. 
+    * There has to be a significant difference in magnitude between ωmax and other frequencies to avoid the problem of interference. 
+
+
+3. *Resampling scheme* Due to the symmetry properties of the sampling
+functions, parameter samples will eventually repeat. Therefore, to ensure
+an adequate sampling, each parameter must be resampled by introducing
+a small adjustment to the phase shift φi of the search curve function (4).
+The sensitivity indices should be re-computed. This procedure is called a
+resampling scheme.  The resampling size NR is the number of times that the scheme repeats. 
+
+3. The resampling size NR, sampling size NS and the maximal frequency ωmax must be chosen to satisfy equation 12 to guarantee a fair and balanced sampling scheme.
 
 ![efast_algorithm](https://user-images.githubusercontent.com/20584697/122826422-f8bd9200-d297-11eb-989a-4f01365e5229.png)
 
