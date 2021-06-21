@@ -27,13 +27,42 @@ This repository contains 2 directories associated with the two mathematical mode
 Here is the overview of the repo: 
 ![repo_overview](https://user-images.githubusercontent.com/20584697/122489268-1aff9900-cf94-11eb-8f63-c20b665bec6e.png) 
 
-## DeFAST algorithm 
+## Detailed implementation 
+
+### DeFAST algorithm 
+Key steps involved in the DeFAST method:
+1. Sampling parameter values using sinusoidal search curves.
+2. Generate sampling matrix.
+4. Estimate the full set of first and total-order sensitivity indices.
+5. Resampling scheme. Repeat this process NR number of times with respect
+to each parameter.
+
+#### How to tune DeFAST 
+1. *Sampling parameter values using sinusoidal search curves*. A unique feature
+of eFAST is to use Fourier transformation functions (namely, search curves) to generate sampling values for each parameter over their feasible ranges. We use the following functions: 
+
 ![efast_algorithm](https://user-images.githubusercontent.com/20584697/122826422-f8bd9200-d297-11eb-989a-4f01365e5229.png)
 
-## Sobol's method algorithm 
+### Sobol's method algorithm 
+
+There are two main steps involved in computing the sensitivity indices: 
+1. First, draw sample values for the model parameters. Here, we use Latin
+Hypercube sampling (LHS), which is a stratified Monte Carlo sampling scheme
+that assigns a distribution for each parameter, partitioning them into N subin-tervals of equal probability then independently sampling without replacement
+from each subinterval. 
+2. The second step is to calculate the sensitivity indices using the samples generated from LHS, which is adapted from Jansen’s algorithm. 
+
 ![Sobol_scheme](https://user-images.githubusercontent.com/20584697/122826524-1db20500-d298-11eb-9ed7-9a3f9b6c90cb.png)
 
-## DGSM algorithm
+### DGSM algorithm
+Derivative-based global measures (DGSM) is a technique, proposed by Kucherenko et al. It involves taking the partial derivatives of the model output with respect to the parameter across the parameter space. 
+The sensitivity measures of DGSM involves computing the mean and standard deviation of the distribution of all possible partial derivatives with respect to each parameter within their range of uncertainties. 
+There are two sensitivity measures that are derived from DGSM including:
+1. The sum of square of the mean and standard deviation of the partial derivatives, namely Gi
+2. The ratio between the mean and the standard deviation.
+
+The algorithm is illustrated in the diagram below:
+
 ![derivative_scheme](https://user-images.githubusercontent.com/20584697/122826650-3fab8780-d298-11eb-8939-e581599349f8.png)
 
 ## References
