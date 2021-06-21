@@ -44,7 +44,7 @@ of eFAST is to use Fourier transformation functions (namely, search curves) to g
 
 where: 
 * s is a random variable uniformly distributioned between (−π,π),
-* F^(−1)(·) is the parameter’s inverse cumulative distribution function. We chose uniform distribution because we do not know specific information about the model parameters’
+* * F^(−1)(·) is the parameter’s inverse cumulative distribution function. We chose uniform distribution because we do not know specific information about the model parameters’
 distributions.
 * ωi and φi are the function’s frequency and phase shift, respectively. 
 
@@ -62,7 +62,21 @@ a small adjustment to the phase shift φi of the search curve function (4).
 The sensitivity indices should be re-computed. This procedure is called a
 resampling scheme.  The resampling size NR is the number of times that the scheme repeats. 
 
-3. The resampling size NR, sampling size NS and the maximal frequency ωmax must be chosen to satisfy equation 12 to guarantee a fair and balanced sampling scheme.
+4. The resampling size NR, number of sampling points NS and the maximal frequency ωmax must be chosen to satisfy equation 12 to guarantee a fair and balanced sampling scheme.
+
+<img width="376" alt="Screen Shot 2021-06-21 at 3 52 55 PM" src="https://user-images.githubusercontent.com/20584697/122837536-19daae80-d2a9-11eb-891d-9a2394304134.png">
+
+5. *Convergence test*. We use the two-sample Komogorov-Smirnov (K-S) test to check for the covergence of sensitivity indices distributions. Specifically, for each NR, we calculate the K-S distance between sampling sensitivity indices distributions of sizes NR and (NR − 1). A distribution is converged if the K-S statistics between the two consecutive distributions is significantly less than 0.05. 
+
+6. *Statistical analysis*. We implement 4 statistical tests to determine the significance of parameters including: 
+    * Two sample student t-test
+    * Wilcoxon rank sum test (or Mann-Whitney U-test)
+    * Permutation test
+    * ANOVA combining with Tukey procedure.
+    
+However, when multiple pairwise hypothesis tests are carried out, the likelihood of incorrectly rejecting a null hypothesis (Type 1 error) also increases. The Bonferroni correction is thus employed in conjunction with two sample student t-test, Wilcoxon and Permutation test to control for occurrence of false positives. Specifically, the critical p-value needs to be divided by the number of hypotheses tests perform. 
+
+
 
 ![efast_algorithm](https://user-images.githubusercontent.com/20584697/122826422-f8bd9200-d297-11eb-989a-4f01365e5229.png)
 
