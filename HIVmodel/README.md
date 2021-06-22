@@ -23,6 +23,8 @@ The bifurcation analysis showed that the system admits two equilibrium solutions
 3. Derivative global sensitivity measure. 
 
 ## Results
+The four parameters that are consistently ranked highly across three methods are: 1) the death  rate of free virus (μV ), 2) the number of free viruses produced by infected T cells (NV ), 3) the rate latently infected cells convert to actively infected (k2), and 4) the rate at which T cells becoming infected by free viruses (k1), all of which are also statistically significant according DeFAST. 
+
 ![HIV_analysis](https://user-images.githubusercontent.com/20584697/122860895-60dd9980-d2d3-11eb-9e28-a73beaa29ced.png)
 
 
