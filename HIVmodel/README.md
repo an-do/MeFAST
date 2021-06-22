@@ -24,15 +24,15 @@ The bifurcation analysis showed that the system admits two equilibrium solutions
 
 ## Results
 We conduct DeFAST using the viral load after 2000 days as
-sensitivity metrics as in [23]. We rank the important parameters using total order sensitivity index. Our analysis was done with NR up to 400. We fixed the maximum frequencies ωmax = 8.
+sensitivity metrics. We rank the important parameters using total order sensitivity index. Our analysis was done with NR up to 400. We fixed the maximum frequencies ωmax = 8.
 
 ![eFAST_HIV_STi_day2000](https://user-images.githubusercontent.com/20584697/122861113-bca82280-d2d3-11eb-8ede-625b9d4d9624.png)
 
 
-Parameter μV (the death rate of free virus), NV (the number of free viruses produced by infected T cells), and k2 (the rate latently infected cells convert to actively infected) are most influential parameters because their contributions to the model output’s total variation.
+According to panel B, parameter μV (the death rate of free virus), NV (the number of free viruses produced by infected T cells), and k2 (the rate latently infected cells convert to actively infected) contribute most to the model output's variation. Panel C displays the number of statistically significant parameters indicated by four statistical tests as functions of NR. The ANOVA-Tukey test detects that there are three important parameters, namely μV ,NV ,k2, which is agreeable to our visual inspection. Meanwhile, the student t-test, Wilcoxon and Permutation test’s conclusions fluctuate between 3-4 important parameters.
 
 
-The four parameters that are consistently ranked highly across three methods are: 1) the death  rate of free virus (μV ), 2) the number of free viruses produced by infected T cells (NV ), 3) the rate latently infected cells convert to actively infected (k2), and 4) the rate at which T cells becoming infected by free viruses (k1), all of which are also statistically significant according DeFAST. 
+We combine the ranking of DeFAST, Sobol's method, and DGSM to effectively choose the most important parameters. The four parameters that are consistently ranked highly across three methods are: 1) the death  rate of free virus (μV ), 2) the number of free viruses produced by infected T cells (NV ), 3) the rate latently infected cells convert to actively infected (k2), and 4) the rate at which T cells becoming infected by free viruses (k1). 
 
 ![HIV_analysis](https://user-images.githubusercontent.com/20584697/122860895-60dd9980-d2d3-11eb-9e28-a73beaa29ced.png)
 
