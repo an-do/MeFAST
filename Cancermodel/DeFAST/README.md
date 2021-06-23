@@ -4,3 +4,4 @@ Run DeFAST_Cancer_main to simulate model output and sensitivity indices for the 
 - DeFAST_analysis: computing sensitivity indices 
 - Parameter_settings: Table of parameters and ranges as is given in the manuscript
 - SETFREQ: sampling frequencies generating function 
+- ligandOde: cancer ode model 
