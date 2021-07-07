@@ -295,6 +295,20 @@ ax.Colormap = newColors;
 % ylabel({'Permutation test','p-values'})
 % set(gca, 'FontSize',fsz)
 
+figure
+plot(n_welch,'blue-','LineWidth',2); 
+hold on; 
+plot(n_wilcox,'green','LineWidth',2);
+%hold on; 
+plot(n_permute,'black','LineWidth',2); 
+plot(n_ANOVA,'red','LineWidth',2); 
+legend('Student t-test', 'Wilcoxon', 'Permute test','ANOVA-Tukey')
+%     [0.75 0.85 0.01 0.01])
+set(gca, 'FontSize',fsz)
+ylim([1,K])
+xlabel('NR')
+ylabel({ '# significant', 'parameters'})
+
 end
 
 
