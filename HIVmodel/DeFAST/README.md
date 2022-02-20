@@ -1,3 +1,7 @@
+To reproduce all model simulations and sensitivity indices calculations, please execute the function eFAST_HIV_main.m. 
+
+We provide below detailed description of all subroutine functions involved in the main function.
+
 ## Functions description
 1. DeFAST_HIV_data.mat: Presimulated and calculated sensitivity indices for the model, which is used to generate all figures in the manuscript
 2. DeFAST_HIV_main.m: Main function to simuldate the model and calculate the sensitivity indices
