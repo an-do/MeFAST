@@ -15,7 +15,7 @@ This repository contains 2 directories associated with the two mathematical mode
 1.	Figures: Generate figures of ranking of important parameters by each method (DGSM, Sobol, and DeFAST) as reported in the manuscript. The analysis is done based on the pre-generated data in this study. 
 2.	DeFAST, DGSM, SobolMethod folders: implementation of each method (DGSM, DeFAST, Sobol) is to help reproduce our results. 
 
-## Reproducing 
+## Reproducing results and figures in the manuscript
 1.	If you would like to reproduce combine ranking result as in the manuscript, please go to either HIV or Cancer model directory, under Figures folder, call the function combine_methods_fig.m. 
 2.	If you would like to reproduce the ranking result for any particular method, for example, DeFAST, also under Figures folder of either model, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder and call the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m) to generate DeFAST analysis figure as illustrated in the manuscript. 
 3.	Similarly, you can reproduce the ranking result by Sobol’s method and DGSM.
