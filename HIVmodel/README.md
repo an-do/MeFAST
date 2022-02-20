@@ -15,6 +15,11 @@ The model consists of four ordinary differential equations and contains a total 
 
 ![HIVmodel](https://user-images.githubusercontent.com/20584697/122605364-30c09d00-d02c-11eb-9459-6e08a5fac45f.png)
 
+## Generating figures 
+
+All pre-simulated results are stored under Figures folder. To generate all figures as reported in the manuscript, please execute the function combine_methods_fig.m to generate under Figures folder (https://github.com/an-do/DeFAST/tree/main/HIVmodel/Figures)
+
+
 ## Objective goal 
 
 The bifurcation analysis showed that the system admits two equilibrium solutions: an uninfected stead state with no virus present and endemically infected steady state. Combination of parameters $N_V, \mu_T, \mu_V, k_1$ and $k_2$ on the intervals defined above can determine the existence and stabilities of the model. Our primary goal is to find which parameters are important to the free viruses so we can focus in finding better estimates. We implemented 3 methods: 
