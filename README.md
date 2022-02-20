@@ -16,15 +16,15 @@ This repository contains 2 directories associated with the two mathematical mode
 2.	DeFAST, DGSM, SobolMethod folders: implementation of each method (DGSM, DeFAST, Sobol) is to help reproduce our results. 
 
 ## Reproducing results and figures in the manuscript
-1.	If you would like to reproduce combine ranking result as in the manuscript, please go to either HIV or Cancer model directory, under Figures folder, call the function combine_methods_fig.m. 
-2.	If you would like to reproduce the ranking result for any particular method, for example, DeFAST, also under Figures folder of either model, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder and call the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m) to generate DeFAST analysis figure as illustrated in the manuscript. 
-3.	Similarly, you can reproduce the ranking result by Sobol’s method and DGSM.
-4.	Please note, all figures generated from the Figures folder are based on the pre-simulated data. To reproduce our study, simulations and sensitivity indices, please visit the following folder: DGSM, DeFAST or SobolMethod and call the following functions:
+1.	Pre-simulated results are stored as .mat file under Figures folder of each model (E.g. https://github.com/an-do/DeFAST/tree/main/HIVmodel/Figures). To consolidate all figures for each model as reported in the manuscript, please excute combine_methods_fig.m. 
+3.	To reproduce analysis figures as illustrated in the manuscript for any particular method, for example, DeFAST, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder and call the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m) to generate DeFAST . 
+5.	Similarly, you can reproduce the ranking result by Sobol’s method and DGSM.
+6.	Please note, all figures generated from the Figures folder are based on the pre-simulated data. To reproduce all simulations and calculations, please visit the following folder: DGSM, DeFAST or SobolMethod and execute following functions:
     - DeFAST_Cancer_main.m or DeFAST_HIV_main.m: DeFAST study for cancer and HIV model
     - DGSM_Cancer_main.m or DGSM_HIV_main.m study for cancer and HIV model
     - Sobol_Cancer_main.m or Sobol_HIV_main.m: Sobol’s method study for cancer and HIV model
 
-Here is the overview of the repo: 
+Overview of the repo: 
 ![repo_overview](https://user-images.githubusercontent.com/20584697/122489268-1aff9900-cf94-11eb-8f63-c20b665bec6e.png) 
 
 ## Detailed implementation 
@@ -34,8 +34,8 @@ Key steps involved in the DeFAST method can be summarized as following:
 1. Sampling parameter values using sinusoidal search curves.
 2. Generate sampling matrix.
 4. Estimate the full set of first and total-order sensitivity indices.
-5. Resampling scheme. Repeat this process NR number of times with respect
-to each parameter.
+5. Resampling scheme. Repeat this process for number of times with respect
+to each parameter, which is called resampling scheme.
 
 #### Algorithm parameters 
 1. *Sampling frequencies for search curves*. Parameters values are sampled via Fourier transformation functions (namely, search curves). We use the following functions: 
