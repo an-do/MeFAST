@@ -15,10 +15,13 @@ The model consists of four ordinary differential equations and contains a total 
 
 ![HIVmodel](https://user-images.githubusercontent.com/20584697/122605364-30c09d00-d02c-11eb-9459-6e08a5fac45f.png)
 
-## Generating figures 
+## To generate figures in the manuscript 
 
 All pre-simulated results are stored under Figures folder. To generate all figures as reported in the manuscript, please execute the function combine_methods_fig.m to generate under Figures folder (https://github.com/an-do/DeFAST/tree/main/HIVmodel/Figures)
 
+## To reproduce all model simulations and calculation of sensitivity indices
+
+To reproduce our simulations and calculations, please visit any particular method of your interest (DeFAST, SobolMethod or DGSM) in this directory then excute the function [method]_[model]_main (E.g. DeFAST_HIV_main) 
 
 ## Objective goal 
 
