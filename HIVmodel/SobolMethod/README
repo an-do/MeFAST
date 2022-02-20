@@ -1,7 +1,5 @@
 To reproduce all model simulations and sensitivity indices calculations, please execute the function DGSM_HIV_main.m 
 
-## Simulation time
-
 
 We provide below detailed description of all subroutine functions involved in the main function
 1. LHS_Call.m: Latin hypercube sampling scheme
