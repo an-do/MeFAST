@@ -10,7 +10,6 @@ We present a multi-method framework that incorporates three global sensitivity a
 
 In MultiGSA we demonstrate the full methodology and workflow using two example mathematical models of increasing complexity. These models include HIV progression and cancer growth. The computational framework we provide generates graphics for visualizing and comparing the results of all three sensitivity analysis algorithms (DGSM, Sobol, and DeFAST).
 
-## Details
 This repository contains 2 directories associated with the two mathematical model examples that we discuss in the manuscript. Each directory contains the following folders: 
 1.	Figures: Generate figures of ranking of important parameters by each method (DGSM, Sobol, and DeFAST) as reported in the manuscript. The analysis is done based on the pre-generated data in this study. 
 2.	DeFAST, DGSM, SobolMethod folders: implementation of each method (DGSM, DeFAST, Sobol) is to help reproduce our results. 
