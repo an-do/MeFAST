@@ -123,7 +123,10 @@ Ti = table(Parameter_var(Si_id),Si);
 [STi, STi_id]= sortrows(ST_vec,'descend');
 Ttoti = table(Parameter_var(STi_id),STi);
 
-%time= toc;
+time= toc;
+
+dlmwrite('Sobol_runtime.csv',time,'-append') % save elapse time. 
+
 save 'Sobol_HIV_sdata.mat' 
 
 
