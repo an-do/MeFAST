@@ -6,7 +6,7 @@ Simulation time: 3518.4 seconds
 
 We provide below detailed description of all subroutine functions involved in the main function.
 
-## Functions description
+## Description
 1. DeFAST_HIV_data.mat: Presimulated and calculated sensitivity indices for the model, which is used to generate all figures in the manuscript
 2. DeFAST_HIV_main.m: Main function to simuldate the model and calculate the sensitivity indices
 3. DeFAST_analysis.m: Statistical analysis routine which includes the convergence test and tests for significance 
