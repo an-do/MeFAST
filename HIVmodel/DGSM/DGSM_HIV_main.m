@@ -6,7 +6,6 @@
 clear all 
 close all
 
-
 %% System of differential equations 
 % The model consists of a system of ordinary differential equations (ODEs) that 
 % describe 4 cell populations in the blood: 1) uninfected T cells 2) latently 
@@ -15,7 +14,7 @@ close all
 % virus (V)
 
 myfun = @ODE_model;
-Nrow= 10 %50000;
+Nrow= 100000;
 
 %% Table of parameters and ranges is given in the manuscript
 
@@ -153,7 +152,8 @@ end %run_num
 save('DGSM_data.mat','mat','sens_mat','sens_rel_mat') 
 delete(gcp('nocreate'))
 
-
+time= toc;
+dlmwrite('derivative_runtime.csv',time,'-append') % save elapse time.
 
 
 

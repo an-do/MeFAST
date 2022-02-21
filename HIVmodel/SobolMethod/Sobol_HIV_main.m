@@ -13,6 +13,7 @@
 % Model parameters and range of uncertainty is set up in Parameter_settings_EFAST_Marino.m 
 % and the system of differential equations in ODE_efast.m
 warning('off');
+tic 
 
 Parameter_settings;
 Np = length(pmin); % number of parameters 
@@ -23,7 +24,7 @@ Np = length(pmin); % number of parameters
 
 % Number of simulations i.e. rows of Latin hypercube sampling matrix 
 
-N = 10000;
+N = 100000;
 
 disp(['Number of simulations are ', num2str(N)])
 
