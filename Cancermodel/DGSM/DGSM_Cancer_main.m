@@ -15,7 +15,7 @@ warning('off');
 
 parpool % parfor parpool
 tic 
-Nrow= 10 %50000;
+Nrow= 100000;
 myfun = @ligandOde; 
 %% 
 % We set the solver tolerance 
