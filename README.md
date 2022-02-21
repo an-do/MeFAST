@@ -1,9 +1,5 @@
-# MultiGSA 
-Author: An Do Dela
-
-Date: May 29, 2021 
-
-Cite paper: 
+# Multi-method Global Sensitivity Analysis of Mathematical Models
+Author: An Dela; Blerta Shtylla; Lisette de Pillis
 
 ## Intro
 We present a multi-method framework that incorporates three global sensitivity analysis methods: two variance-based methods (DeFAST and Sobol’s method) and one derivative-based method. Parameters that all three methods uniformly rank as highly significant can reasonably be considered to have the greatest impact on model output.
