@@ -16,9 +16,8 @@ This repository contains 2 directories associated with the two mathematical mode
 
 ## Reproducing results and figures in the manuscript
 1.	Pre-simulated results are stored as .mat file under Figures folder of each model (E.g. https://github.com/an-do/DeFAST/tree/main/HIVmodel/Figures). To consolidate all figures for each model as reported in the manuscript, please excute combine_methods_fig.m. 
-3.	To reproduce analysis figures as illustrated in the manuscript for any particular method, for example, DeFAST, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder and call the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m) to generate DeFAST . 
-5.	Similarly, you can reproduce the ranking result by Sobol’s method and DGSM.
-6.	Please note, all figures generated from the Figures folder are based on the pre-simulated data. To reproduce all simulations and calculations, please visit the following folder: DGSM, DeFAST or SobolMethod and execute following functions:
+2.	To reproduce analysis figures as illustrated in the manuscript for any particular method, for example, DeFAST, please visit DeFAST_HIV_figures (or DeFAST_Cancer_figures) folder and execute the function DeFAST_HIV_figs.m (or DeFAST_Cancer_figs.m) to generate all figures in the manuscript. 
+3.	Please note, all figures generated from the Figures folder are based on the pre-simulated data. To reproduce all simulations and calculations, please visit the following folder: DGSM, DeFAST or SobolMethod and execute following functions:
     - DeFAST_Cancer_main.m or DeFAST_HIV_main.m: DeFAST study for cancer and HIV model
     - DGSM_Cancer_main.m or DGSM_HIV_main.m study for cancer and HIV model
     - Sobol_Cancer_main.m or Sobol_HIV_main.m: Sobol’s method study for cancer and HIV model
