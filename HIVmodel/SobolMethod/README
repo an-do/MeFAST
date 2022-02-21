@@ -1,9 +1,0 @@
-To reproduce all model simulations and sensitivity indices calculations, please execute the function DGSM_HIV_main.m 
-
-
-We provide below detailed description of all subroutine functions involved in the main function
-1. LHS_Call.m: Latin hypercube sampling scheme
-2. Model_LHS.m: Generate sampled parameters matrix
-3. ODE_model.m: Dynamical model implementation
-4. Parameter_settings.m: setting of model parameters names and range of uncertainty
-5. Sobol_HIV_main.m: main function to execute the model simulations and calculation of sensitivity indices
