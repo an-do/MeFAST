@@ -40,7 +40,7 @@ time_points=[2000 4000]; %time points in days
 %% Actual simulation 
 %% Here we commented this part of the code because we already obtained the results previously. 
 
-NR = 40; %resampling size
+NR = 400; %resampling size
 parpool % turn on to use parallel computing in cluster
 tic 
 [rangeSi, rangeSti] = Model_efast(NR,pmin,pmax,...
