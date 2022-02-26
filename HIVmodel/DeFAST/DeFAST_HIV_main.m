@@ -46,7 +46,7 @@ tic
 [rangeSi, rangeSti] = Model_efast(NR,pmin,pmax,...
    time_points, @ODE_model);
 elapse = toc;
-dlmwrite('runtime.csv',[NR,elapse],'-append') % save elapse time. 
+dlmwrite('DeFAST_runtime.csv',[NR,elapse],'-append') % save elapse time. 
 delete(gcp('nocreate')) % turn off parallel computing
 
 %% DeFAST analysis  

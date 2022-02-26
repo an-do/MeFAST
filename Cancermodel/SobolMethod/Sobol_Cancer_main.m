@@ -29,7 +29,7 @@ time_points=[25, 50]; %time points of interest in days
 Np = length(pmin); % number of parameters
 y_var = 1; % model outcome of interest
 
-N=400000; %total number of rows of 2 random matrix A and B 
+N=100000; %total number of rows of 2 random matrix A and B 
 disp(['Number of simulations are ', num2str(N)])
 
 
@@ -274,7 +274,7 @@ end
 
 save('Sobol_Cancer_data.mat','S_vec','ST_vec');
 time= toc;
-
+dlmwrite('Sobol_runtime.csv',time,'-append');
 
 
 %% 

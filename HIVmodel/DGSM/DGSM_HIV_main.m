@@ -156,9 +156,83 @@ time= toc;
 dlmwrite('derivative_runtime.csv',time,'-append') % save elapse time.
 
 
+%% Plotting DGSM ratio and Gi for each parameter
+ 
+Parameter_settings; % Loading parameters names and sampling ranges
+K = length(pmin); % number of parameters 
 
+% Model outcome of interest: viral load at 1) 2000 days and 2) 4000 days. 
 
+time_points=[2000 4000]; % (days) 
 
+% Load the simulated data from above
+% Just in case users need to restart the computer
 
+load('DGSM_data.mat')
 
+S = sens_rel_mat.*mat; 
+[~,K,nT]=size(S);
 
+S(:,end,:) = []; %remove dummy parameter statistics 
+
+%allocation
+Gi = zeros(K,nT);
+ratio = Gi;
+
+for i =1:nT % timepoint 
+    ave = mean(abs(S(:,1:K-1,i)));
+    sd = std(abs(S(:,1:K-1,i)));
+    Gi(1:K-1,i) = sqrt(ave.^2 + sd.^2); % square root mean^2 + sd^2 
+    ratio(1:K-1,i) = ave./sd; % ratio mean/sd
+end
+
+% Plot Day 2000
+[~, sort_id_ratio] = sortrows(ratio(:,1));
+figure(1)
+plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
+title('Derivative ratio for day 2000')
+
+id_max= Gi(:,1)==max(Gi(:,1)); 
+plotGi = Gi;
+plotGi(id_max,1)=NaN;
+plotGi = plotGi/10e+9; 
+[~, sort_id_Gi] = sortrows(plotGi(:,1),'ascend');
+
+figure(2)
+plot(Gi(:,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
+legend('Unsorted and include outlier')
+title('Derivative Gi for day 2000')
+
+figure(3)
+plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
+legend('Sorted and remove outlier')
+title('Derivative Gi for day 2000')
+
+%Plot day 4000
+
+[~, sort_id_ratio] = sortrows(ratio(:,2));
+figure(4)
+plot(ratio(sort_id_ratio,2),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
+title('Derivative ratio for day 4000')
+
+id_max= Gi(:,2)==max(Gi(:,2)); 
+plotGi = Gi;
+plotGi(id_max,2)=NaN;
+plotGi = plotGi/10e+29; 
+[~, sort_id_Gi] = sortrows(plotGi(:,2),'ascend');
+
+figure(5)
+plot(Gi(:,2),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
+legend('Unsorted and include outlier')
+title('Derivative Gi for day 4000')
+
+figure(6)
+plot(plotGi(sort_id_Gi,2),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
+legend('Sorted and remove outlier')
+title('Derivative Gi for day 4000')

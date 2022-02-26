@@ -35,7 +35,7 @@ pmin=[
 .3080*10^(-4);	%q
 .0099; %r
 .225; %s
-0.5 % dummy
+0 % dummy
 ];
 
 pmax=[
@@ -60,9 +60,9 @@ pmax=[
 
 % Parameter Labels 
 Parameter_var={'a', 'b', 'c', ...
-    'd','e','eL', 'f','g', 'h',...
+    'd','\sigma','\lambda', 'f','g', 'h',...
     'j','k', 'm','p','q','r','s',...
-    'NA'}';%,
+    'dummy'}';%,
 
 % PARAMETER BASELINE VALUES
 baseline = [
@@ -82,7 +82,7 @@ baseline = [
 3.422*10^(-5);	%q
 .011; %r
 .25; %s [ 2.73  1.61  5.07  0.40 ]
-5  % dummy
+0.5  % dummy
 ];
 
 y_var_label={'T','N','L'};

@@ -60,7 +60,7 @@ pmax=[
 
 % Parameter Labels 
 Parameter_var={'a', 'b', 'c', ...
-    'd','e','eL', 'f','g', 'h',...
+    'd','\sigma','\lambda', 'f','g', 'h',...
     'j','k', 'm','p','q','r','s',...
     'dummy'}';%,
 
@@ -91,7 +91,7 @@ y_var_label={'T','N','L'};
  y0 = [0.1,0.003,0];
      
 %% TIME SPAN OF THE SIMULATION
-t_end=50; % length of the simulations
+t_end=25; % length of the simulations
 t0=0;
 tspan=(0:t_end);   % time points where the output is calculated
 

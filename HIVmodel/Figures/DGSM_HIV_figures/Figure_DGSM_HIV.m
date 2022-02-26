@@ -15,10 +15,9 @@
 Parameter_settings;
 K = length(pmin); % number of parameters 
 
-% Taking viral load at 2 different time points of interest: 
-% 1) 2000 days and 2) 4000 days. 
+% Taking viral load at day 2000 
 
-time_points=[2000 4000]; %time points in days 
+time_points=2000; %time points in days 
 
 % sensivity measures associated with DGSM were generated and saved as
 % Derivative_data.mat
@@ -40,20 +39,31 @@ for i =1:nT % timepoint
     ratio(1:K-1,i) = ave./sd; % ratio mean/sd
 end
 
-%% Plot 
+%% Plotting analysis results
+% Day 2000
+[~, sort_id_ratio] = sortrows(ratio(:,1));
 figure(1)
-plot(ratio(:,1),'-*','LineWidth',2);
-hold on; 
-plot(Gi(:,1)/max(Gi(:,1)),'-*','LineWidth',2);
+plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
+title('Derivative ratio for day 2000')
+
+id_max= Gi(:,1)==max(Gi(:,1)); 
+plotGi = Gi;
+plotGi(id_max,1)=NaN;
+plotGi = plotGi/10e+9; 
+[~, sort_id_Gi] = sortrows(plotGi(:,1),'ascend');
+
+figure(2)
+plot(Gi(:,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
-legend('Derivative ratio', 'Derivative Gi')
-% 
-% %--------- Total order 
-% 
-% figure(2)
-% plot(ratio(:,2),'-*','LineWidth',2);
-% hold on; 
-% plot(Gi(:,2)/max(Gi(:,2)),'-*','LineWidth',2);
-% set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
-% legend('Derivative ratio', 'Derivative Gi')
+legend('Unsorted and include parameter N_V')
+title('Derivative Gi for day 2000')
+
+figure(3)
+plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
+legend('Sorted and remove parameter N_V')
+title('Derivative Gi for day 2000')
+
+
 
