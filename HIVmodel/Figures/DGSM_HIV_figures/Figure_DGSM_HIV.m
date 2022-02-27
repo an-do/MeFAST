@@ -23,7 +23,7 @@ time_points=2000; %time points in days
 % Derivative_data.mat
 load('Derivative_HIV_data.mat')
 
-S = sens_rel_mat.*LHS; 
+S = sens_rel_mat.*mat; 
 [~,K,nT]=size(S);
 
 S(:,end,:) = []; %remove dummy parameter statistics 
@@ -56,13 +56,39 @@ plotGi = plotGi/10e+9;
 figure(2)
 plot(Gi(:,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
-legend('Unsorted and include parameter N_V')
+legend('Unsorted and include outlier')
 title('Derivative Gi for day 2000')
 
 figure(3)
 plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
-legend('Sorted and remove parameter N_V')
+legend('Sorted and remove outlier')
+title('Derivative Gi for day 2000')
+
+
+% Day 4000
+[~, sort_id_ratio] = sortrows(ratio(:,2));
+figure(1)
+plot(ratio(sort_id_ratio,2),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
+title('Derivative ratio for day 4000')
+
+id_max= Gi(:,2)==max(Gi(:,2)); 
+plotGi = Gi;
+plotGi(id_max,2)=NaN;
+plotGi = plotGi/10e+9; 
+[~, sort_id_Gi] = sortrows(plotGi(:,2),'ascend');
+
+figure(2)
+plot(Gi(:,2),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
+legend('Unsorted and include outlier')
+title('Derivative Gi for day 4000')
+
+figure(3)
+plot(plotGi(sort_id_Gi,2),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
+legend('Sorted and remove outlier')
 title('Derivative Gi for day 2000')
 
 
