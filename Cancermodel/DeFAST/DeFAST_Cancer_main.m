@@ -29,7 +29,7 @@ time_points=[25, 50]; %time points of interest in days
 % This process may take some time.
 % See runtime.csv for more details
 
-NR = 30; %400; %resampling size
+NR = 40; %400; %resampling size
 parpool %turn on to use parallel computing in cluster
 tic 
 [rangeSi, rangeSti] = Model_efast(NR,pmin,pmax,...

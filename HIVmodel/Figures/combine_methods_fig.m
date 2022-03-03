@@ -69,22 +69,12 @@ legend('eFAST Total order', 'Sobol Total order')
 
 
 id_max= Gi(:,1)==max(Gi(:,1)); 
-plotGi = Gi;
-plotGi(id_max,1)=NaN;
-plotGi = plotGi/10e+9; 
+plotGi = Gi(:,1);
 [~, sort_id_Gi] = sortrows(plotGi(:,1),'descend');
-
-figure(10)
-plot(Gi(:,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',30)
-legend('Unsorted and include outlier')
-title('Derivative Gi for day 2000')
 
 figure(11)
 plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
-legend('Sorted and remove outlier')
-title('Derivative Gi for day 2000')
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
 
 [~, sort_id_ratio] = sortrows(ratio(:,1),'descend');
 figure(12)
@@ -92,22 +82,5 @@ plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',30)
 title('Derivative ratio for day 2000')
 
-
-%-------- Bar plot 
-figure(3)
-[~,idst] = sortrows(Sti_eFAST(:,1),'descend');
-combine = [Sti_eFAST(idst,1) ST_Sobol(idst) ratio(idst,1) Gi(idst,1)/max(Gi(:,1))]
-bar(combine)
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
-legend('eFAST', 'Sobol','Derivative ratio', 'Derivative Gi')
-ylabel('Total order')
-
-figure(4)
-[~,idst] = sortrows(ST_Sobol,'descend');
-combine = [ ST_Sobol(idst) ratio(idst,1)/max(ratio) Gi(idst,1)/max(Gi(:,1))]
-bar(combine)
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
-legend('Sobol','Derivative ratio', 'Derivative Gi')
-ylabel('Total order')
 
 
