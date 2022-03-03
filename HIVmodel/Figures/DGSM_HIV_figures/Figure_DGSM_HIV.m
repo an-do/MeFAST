@@ -17,7 +17,7 @@ K = length(pmin); % number of parameters
 
 % Taking viral load at day 2000 
 
-time_points=2000; %time points in days 
+time_points=[2000,4000]; %time points in days 
 
 % sensivity measures associated with DGSM were generated and saved as
 % Derivative_data.mat
@@ -35,6 +35,12 @@ ratio = Gi;
 for i =1:nT % timepoint 
     ave = mean(abs(S(:,1:K-1,i)));
     sd = std(abs(S(:,1:K-1,i)));
+    
+    figure(10+i)
+    scatter(ave,sd,'filled')
+    title(['Day ', num2str(time_points(i))]);
+    set(gca,'FontSize',20)
+
     Gi(1:K-1,i) = sqrt(ave.^2 + sd.^2); % square root mean^2 + sd^2 
     ratio(1:K-1,i) = ave./sd; % ratio mean/sd
 end
@@ -44,7 +50,7 @@ end
 [~, sort_id_ratio] = sortrows(ratio(:,1));
 figure(1)
 plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',25)
 title('Derivative ratio for day 2000')
 
 id_max= Gi(:,1)==max(Gi(:,1)); 
@@ -55,15 +61,17 @@ plotGi = plotGi/10e+9;
 
 figure(2)
 plot(Gi(:,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',25)
 legend('Unsorted and include outlier')
 title('Derivative Gi for day 2000')
 
 figure(3)
 plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',25)
 legend('Sorted and remove outlier')
 title('Derivative Gi for day 2000')
+
+
 
 
 % Day 4000
@@ -79,13 +87,13 @@ plotGi(id_max,2)=NaN;
 plotGi = plotGi/10e+9; 
 [~, sort_id_Gi] = sortrows(plotGi(:,2),'ascend');
 
-figure(2)
+figure(4)
 plot(Gi(:,2),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
 legend('Unsorted and include outlier')
 title('Derivative Gi for day 4000')
 
-figure(3)
+figure(5)
 plot(plotGi(sort_id_Gi,2),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
 legend('Sorted and remove outlier')

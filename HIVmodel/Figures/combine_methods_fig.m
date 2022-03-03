@@ -9,7 +9,7 @@ Parameter_settings;
 %% derivative base 
 load('./DGSM_HIV_figures/Derivative_HIV_data.mat');
 
-S = sens_rel_mat.*LHS; 
+S = sens_rel_mat.*mat; 
 [~,K,nT]=size(S);
 
 S(:,end,:) = []; %remove dummy parameter statistics 
@@ -45,9 +45,9 @@ plot(Si_eFAST(ids,1),'-*','LineWidth',2);
 hold on; 
 plot(Si_Sobol(ids),'-*','LineWidth',2);
 hold on; 
-plot(ratio(ids,1)/max(ratio),'-*','LineWidth',2);
-hold on; 
-plot(Gi(ids,1)/max(Gi(:,1)),'-*','LineWidth',2);
+plot(ratio(ids,1),'-*','LineWidth',2);
+ hold on; 
+ plot(Gi(ids,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(ids),'FontSize',20)
 legend('eFAST First order', 'Sobol First order','Derivative ratio', 'Derivative Gi')
 
@@ -59,12 +59,39 @@ figure(2)
 plot(Sti_eFAST(idst,1),'-*r','LineWidth',2); 
 hold on; 
 plot(ST_Sobol(idst),'-*blue','LineWidth',2);
-hold on; 
-plot(ratio(idst,1)/max(ratio),'-*black','LineWidth',2);
-hold on; 
-plot(Gi(idst,1)/max(Gi(:,1)),'-*green','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
-legend('eFAST Total order', 'Sobol Total order','Derivative ratio', 'Derivative Gi')
+% hold on; 
+% plot(ratio(ids,1),'-*','LineWidth',2);
+% hold on; 
+%  plot(Gi(ids,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',30)
+%legend('eFAST Total order', 'Sobol Total order','Derivative ratio', 'Derivative Gi')
+legend('eFAST Total order', 'Sobol Total order')
+
+
+id_max= Gi(:,1)==max(Gi(:,1)); 
+plotGi = Gi;
+plotGi(id_max,1)=NaN;
+plotGi = plotGi/10e+9; 
+[~, sort_id_Gi] = sortrows(plotGi(:,1),'descend');
+
+figure(10)
+plot(Gi(:,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',30)
+legend('Unsorted and include outlier')
+title('Derivative Gi for day 2000')
+
+figure(11)
+plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
+legend('Sorted and remove outlier')
+title('Derivative Gi for day 2000')
+
+[~, sort_id_ratio] = sortrows(ratio(:,1),'descend');
+figure(12)
+plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',30)
+title('Derivative ratio for day 2000')
+
 
 %-------- Bar plot 
 figure(3)

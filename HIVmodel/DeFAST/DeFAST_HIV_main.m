@@ -40,7 +40,7 @@ time_points=[2000 4000]; %time points in days
 %% Actual simulation 
 %% Here we commented this part of the code because we already obtained the results previously. 
 
-NR = 400; %resampling size
+NR = 40% 400%resampling size
 parpool % turn on to use parallel computing in cluster
 tic 
 [rangeSi, rangeSti] = Model_efast(NR,pmin,pmax,...
@@ -66,7 +66,7 @@ tbl.Properties.VariableNames= {'Index','Parameters','First order SI'}
 %% 
 %% DeFAST results- Total order sensitivity indices $S_i$ at 2000 days
 
-[Stot, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Sti',4,1)
+[Stot, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Sti',4,2)
 tbl = table(index', Parameter_var(id),Stot(index));
 tbl.Properties.VariableNames= {'Index','Parameters','Total order SI'}
 
