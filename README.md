@@ -2,9 +2,7 @@
 Author: An Dela; Blerta Shtylla; Lisette de Pillis
 
 ## Intro
-We present a multi-method framework that incorporates three global sensitivity analysis methods: two variance-based methods (DeFAST and Sobol’s method) and one derivative-based method. Parameters that all three methods uniformly rank as highly significant can reasonably be considered to have the greatest impact on model output.
-
-In MultiGSA we demonstrate the full methodology and workflow using two example mathematical models of increasing complexity. These models include HIV progression and cancer growth. The computational framework we provide generates graphics for visualizing and comparing the results of all three sensitivity analysis algorithms (DGSM, Sobol, and DeFAST).
+We present a multi-method framework that incorporates three global sensitivity analysis methods: two variance-based methods (DeFAST and Sobol’s method) and one derivative-based method. We demonstrate the full methodology and workflow using two example mathematical models including HIV progression and cancer growth. The computational framework we provide generates graphics for visualizing and comparing the results of all three sensitivity analysis algorithms (DGSM, Sobol, and DeFAST).
 
 This repository contains 2 directories associated with the two mathematical model examples that we discuss in the manuscript. Each directory contains the following folders: 
 1.	Figures: Generate figures of ranking of important parameters by each method (DGSM, Sobol, and DeFAST) as reported in the manuscript. The analysis is done based on the pre-generated data in this study. 
