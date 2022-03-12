@@ -14,7 +14,7 @@ close all
 % virus (V)
 
 myfun = @ODE_model;
-Nrow= 100000;
+Nrow= 300000;
 
 %% Table of parameters and ranges is given in the manuscript
 
@@ -87,7 +87,8 @@ sens_rel_mat = sens_mat;
 
 disp('Simulating model output for each row of sampling matrix')
 parfor run_num =1:Nrow %parfor 
-    
+ %for run_num =1:Nrow %parfor 
+   
     run_num
     f=myfun; 
     opts = odeset('AbsTol',10^(-6)); % add AbsTol option
@@ -140,8 +141,9 @@ parfor run_num =1:Nrow %parfor
         %%Relative sensitivity = change in glucose/epsilon
         %sens_mat(run_num,j,:)   = (f1 - f0)/(epsnew);
         sens_mat(run_num,j,:)   = (f1 - f0)/(f0*epsnew); %mod May 28
-        sens_rel_mat(run_num,j,:) = squeeze(sens_mat(run_num,j,:))'./...
-            f0;
+%         sens_rel_mat(run_num,j,:) = squeeze(sens_mat(run_num,j,:))'./...
+%             f0;
+         sens_rel_mat(run_num,j,:) = squeeze(sens_mat(run_num,j,:));
 
     end% j parameter
 

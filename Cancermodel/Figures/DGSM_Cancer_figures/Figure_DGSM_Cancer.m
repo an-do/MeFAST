@@ -23,7 +23,7 @@ time_points=[25,50];
 % Derivative_data.mat
 load('Derivative_Cancer_data.mat')
 
-S = sens_rel_mat.*LHSmatrix; 
+S = sens_rel_mat.*mat; 
 [~,K,nT]=size(S);
 
 S(:,end,:) = []; %remove dummy parameter statistics 
@@ -35,86 +35,51 @@ ratio = Gi;
 for i =1:nT % timepoint 
     ave = mean(abs(S(:,1:K-1,i)));
     sd = std(abs(S(:,1:K-1,i)));
+    
+    figure(10+i)
+    scatter(ave,sd,'filled')
+    title(['Day ', num2str(time_points(i))]);
+    set(gca,'YScale', 'log','FontSize',20)
+    
     Gi(1:K-1,i) = sqrt(ave.^2 + sd.^2); % square root mean^2 + sd^2 
     ratio(1:K-1,i) = ave./sd; % ratio mean/sd
 end
 
 
 %% Plotting DGSM ratio and Gi for each parameter
- 
-Parameter_settings; % Loading parameters names and sampling ranges
-K = length(pmin); % number of parameters 
-
-
-% Load the simulated data from above
-% Just in case users need to restart the computer
-
-load('Derivative_Cancer_data.mat')
-
-S = sens_rel_mat.*LHSmatrix; 
-[~,K,nT]=size(S);
-
-S(:,end,:) = []; %remove dummy parameter statistics 
-
-%allocation
-Gi = zeros(K,nT);
-ratio = Gi;
-
-for i =1:nT % timepoint 
-    ave = mean(abs(S(:,1:K-1,i)));
-    sd = std(abs(S(:,1:K-1,i)));
-    Gi(1:K-1,i) = sqrt(ave.^2 + sd.^2); % square root mean^2 + sd^2 
-    ratio(1:K-1,i) = ave./sd; % ratio mean/sd
-end
-
 % Plot Day 25
-[~, sort_id_ratio] = sortrows(ratio(:,1));
+[~, sort_id_ratio] = sortrows(ratio(:,1),'descend');
+
 figure(1)
 plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',30)
 title('Derivative ratio for day 25')
 
-id_max= Gi(:,1)==max(Gi(:,1)); 
-plotGi = Gi;
-plotGi(id_max,1)= NaN;
-plotGi = plotGi(:,1)/1e+7; 
-[~, sort_id_Gi] = sortrows(plotGi(:,1),'ascend');
+
+plotGi = Gi(:,1);
+[~, sort_id_Gi] = sortrows(plotGi(:,1),'descend');
+
 
 figure(2)
-plot(Gi(:,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
-legend('Unsorted and include outlier')
+plot(Gi(sort_id_Gi,1),'-*','LineWidth',2);
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
 title('Derivative Gi for day 25')
 
-figure(3)
-plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
-legend('Sorted and remove outlier')
-title('Derivative Gi for day 25')
 
 %Plot day 50
 
-[~, sort_id_ratio] = sortrows(ratio(:,2));
+[~, sort_id_ratio] = sortrows(ratio(:,2),'descend');
+
 figure(4)
 plot(ratio(sort_id_ratio,2),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
 title('Derivative ratio for day 50')
 
-id_max= Gi(:,2)==max(Gi(:,2)); 
-plotGi = Gi;
-plotGi(id_max,2)=NaN;
-plotGi = plotGi/10e9; 
-[~, sort_id_Gi] = sortrows(plotGi(:,2),'ascend');
+[~, sort_id_Gi] = sortrows(Gi(:,2),'descend');
 
 figure(5)
-plot(Gi(:,2),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
-legend('Unsorted and include outlier')
+plot(Gi(sort_id_Gi,2),'-*','LineWidth',2);
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
 title('Derivative Gi for day 50')
 
-figure(6)
-plot(plotGi(sort_id_Gi,2),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
-legend('Sorted and remove outlier')
-title('Derivative Gi for day 50')
 

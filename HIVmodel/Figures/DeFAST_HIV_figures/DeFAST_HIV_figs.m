@@ -41,15 +41,15 @@ time_points=[2000 4000]; %time points in days
 % The last input of the function indicates the time point at which the analysis 
 % is avaluated. 1 = 2000 days and 2 = 4000 days
 
-[S, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Si',4,1);
+%[S, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Si',4,1);
 
 % Summary table of parameters and their associate first 
 % order sensitivity indices
 
-index = 1:max(id);
-tbl = table(index', Parameter_var(id),S(index))
-tbl.Properties.VariableNames= {'Index','Parameters','First order SI'}
- 
+% index = 1:max(id);
+% tbl = table(index', Parameter_var(id),S(index))
+% tbl.Properties.VariableNames= {'Index','Parameters','First order SI'}
+%  
 %% DeFAST results- Total order sensitivity indices $S_i$ at 2000 days
 
 [Stot, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Sti',4,1);
@@ -57,5 +57,4 @@ tbl = table(index', Parameter_var(id),Stot(index))
 tbl.Properties.VariableNames= {'Index','Parameters','Total order SI'}
 %% 
 % 
-% 
-%
+%% DeFAST results- Total order sensitivity indices $S_ti$ at 4000 days

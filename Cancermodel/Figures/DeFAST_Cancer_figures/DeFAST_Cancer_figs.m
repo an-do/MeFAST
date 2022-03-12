@@ -31,7 +31,7 @@ time_points=[25 50]; %time points in days
 % The last input of the function indicates the time point at which the analysis 
 % is avaluated. 1 = 25 days and 2 = 50 days
 
-[S, id]=DeFAST_analysis('Defast_Cancer_data.mat',0.05,'Si',1,1)
+%[S, id]=DeFAST_analysis('Defast_Cancer_data.mat',0.05,'Si',1,1)
 
 % Generate summary table of parameters and their associate first 
 % order sensitivity indices

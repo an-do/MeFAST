@@ -17,21 +17,25 @@ warning('off');
 load('Sobol_Cancer_data.mat');
 Parameter_settings;
 Np= length(pmin); % number of parameters
+ax = gca(); 
 
 figure
-subplot(2,2,1)
-pie(S_vec)
+ax = gca(); 
+h= pie(ax, S_vec)
+ax.Colormap = spring(numel(h)/2);
 legend(Parameter_var)
 set(gca,'FontSize',20)
 title('First order SI')
 
-subplot(2,2,2)
-pie(ST_vec)
+figure; 
+ax = gca(); 
+h = pie(ax, ST_vec)
+ax.Colormap = spring(numel(h)/2);
 legend(Parameter_var)
 set(gca,'FontSize',20)
 title('Total order STi')
 
-subplot(2,2,[3 4])
+figure; 
 hb = [S_vec ST_vec];
 bar(hb)
 set(gca,'XTick',[1:Np], 'XTickLabel',Parameter_var,'FontSize',20)

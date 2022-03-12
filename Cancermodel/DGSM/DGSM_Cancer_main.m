@@ -202,8 +202,7 @@ parfor run_num =1:Nrow %parfor
         %%Relative sensitivity = change in glucose/epsilon
         %sens_mat(run_num,j,:)   = (f1 - f0)/(epsnew);
         sens_mat(run_num,j,:)   = (f1 - f0)/(f0*epsnew); %mod May 28
-        sens_rel_mat(run_num,j,:) = squeeze(sens_mat(run_num,j,:))'./...
-            f0;
+        sens_rel_mat(run_num,j,:) = squeeze(sens_mat(run_num,j,:))';
 
     end% j parameter
 

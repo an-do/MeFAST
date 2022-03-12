@@ -38,20 +38,8 @@ ST_Sobol= ST_vec;
 
 
 %% Plot 
-figure(1)
-[~,ids] = sortrows(Si_eFAST(:,1),'descend');
 
-plot(Si_eFAST(ids,1),'-*','LineWidth',2); 
-hold on; 
-plot(Si_Sobol(ids),'-*','LineWidth',2);
-hold on; 
-plot(ratio(ids,1),'-*','LineWidth',2);
- hold on; 
- plot(Gi(ids,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(ids),'FontSize',20)
-legend('eFAST First order', 'Sobol First order','Derivative ratio', 'Derivative Gi')
-
-%--------- Total order 
+%--------- Day 2000
 
 figure(2)
 [~,idst] = sortrows(Sti_eFAST(:,1),'descend');
@@ -65,22 +53,55 @@ plot(ST_Sobol(idst),'-*blue','LineWidth',2);
 %  plot(Gi(ids,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',30)
 %legend('eFAST Total order', 'Sobol Total order','Derivative ratio', 'Derivative Gi')
-legend('eFAST Total order', 'Sobol Total order')
+legend('DeFAST Total order', 'Sobol Total order')
 
 
-id_max= Gi(:,1)==max(Gi(:,1)); 
 plotGi = Gi(:,1);
 [~, sort_id_Gi] = sortrows(plotGi(:,1),'descend');
 
 figure(11)
 plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
 set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
+title('Derivative Gi for day 2000')
 
 [~, sort_id_ratio] = sortrows(ratio(:,1),'descend');
 figure(12)
 plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',30)
 title('Derivative ratio for day 2000')
+
+
+
+%--------- Day 4000
+
+figure(3)
+[~,idst] = sortrows(Sti_eFAST(:,2),'descend');
+
+plot(Sti_eFAST(idst,2),'-*r','LineWidth',2); 
+hold on; 
+plot(ST_Sobol(idst),'-*blue','LineWidth',2);
+% hold on; 
+% plot(ratio(ids,1),'-*','LineWidth',2);
+% hold on; 
+%  plot(Gi(ids,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',30)
+%legend('eFAST Total order', 'Sobol Total order','Derivative ratio', 'Derivative Gi')
+legend('DeFAST Total order', 'Sobol Total order')
+
+
+plotGi = Gi(:,2);
+[~, sort_id_Gi] = sortrows(plotGi,'descend');
+
+figure(4)
+plot(plotGi(sort_id_Gi),'-*','LineWidth',2);
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
+title('Derivative Gi for day 4000')
+
+[~, sort_id_ratio] = sortrows(ratio(:,1),'descend');
+figure(12)
+plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',30)
+title('Derivative ratio for day 42000')
 
 
 

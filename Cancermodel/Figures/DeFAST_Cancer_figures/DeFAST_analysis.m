@@ -142,7 +142,6 @@ mat = rand(K,3);
 
 
 figure
-subplot(2,2,1)
 plot(dist,'-','LineWidth',3)
 set(gca, 'FontSize',fsz)
 xlabel(' NR')
@@ -150,22 +149,21 @@ ylabel({'Distribution',' Distance'})
 legend(Parameter_var)
 
 % number of signifcant parameters plot 
-subplot(2,2,3) 
+figure
 hold on
 plot(n_welch,'blue-','LineWidth',2); 
-%hold on; 
+hold on; 
 plot(n_wilcox,'green','LineWidth',2);
-%hold on; 
+hold on; 
 plot(n_permute,'black','LineWidth',2); 
 plot(n_ANOVA,'red','LineWidth',2); 
 legend('Student t-test', 'Wilcoxon', 'Permute test','ANOVA-Tukey')
-%     [0.75 0.85 0.01 0.01])
 set(gca, 'FontSize',fsz)
 ylim([1,K])
 xlabel('NR')
 ylabel({ '# significant', 'parameters'})
 
-subplot(2,2,4)
+figure
 bar(barcombine, 'grouped')
 xticks([1:K-1]); 
 xticklabels(Parameter_var(id))
@@ -176,7 +174,7 @@ legend('Student t-test', 'Wilcoxon', 'Permutation','ANOVA-Tukey')
 par = Parameter_var(1:K-1);
 S_plot = S(1:K-1);
 
-subplot(2,2,2)
+figure
 ax = gca(); 
 h= pie(S_plot,par(id));
 set(findobj(h,'type','text'),'fontsize',20);

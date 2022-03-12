@@ -2,10 +2,48 @@
 %the steady state. Marino performed the sensitivity at 2000 days and 4000
 %days but both analysis is identical 
 clear; close all; clc 
-
 Parameter_settings;
 
-%% derivative base 
+
+%% For eFAST
+load('./DeFAST_Cancer_figures/DeFAST_Cancer_data.mat'); 
+
+Si_eFAST = squeeze(mean(rangeSi(:,:,:,1)))';
+Sti_eFAST = squeeze(mean(rangeSti(:,:,:,1)))';
+
+
+%% Sobol 
+load('./Sobol_Cancer_figures/Sobol_Cancer_data.mat');
+
+Si_Sobol= S_vec; 
+ST_Sobol= ST_vec; 
+
+[~,idst] = sortrows(ST_Sobol(:,1),'descend');
+Parameter_var(idst)
+
+%% Plot 
+figure(20)
+[~,idst] = sortrows(Sti_eFAST(:,1),'descend');
+
+plot(Sti_eFAST(idst,1),'-*r','LineWidth',2); 
+hold on; 
+plot(ST_Sobol(idst),'-*blue','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
+legend('DeFAST Total order', 'Sobol Total order')
+title('day 25')
+%--------- Total order 
+
+figure(21)
+[~,idst] = sortrows(Sti_eFAST(:,2),'descend');
+
+plot(Sti_eFAST(idst,2),'-*r','LineWidth',2); 
+hold on; 
+plot(ST_Sobol(idst),'-*blue','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
+legend('DeFAST Total order', 'Sobol Total order')
+title('day 50')
+
+%% Plotting DGSM ratio and Gi for each parameter
 load('./DGSM_Cancer_figures/Derivative_Cancer_data.mat')
 
 S = sens_rel_mat.*LHSmatrix; 
@@ -22,67 +60,36 @@ for i =1:nT % timepoint
     ratio(1:K-1,i) = ave./sd;
 end
 
-%% For eFAST
-load('./DeFAST_Cancer_figures/DeFAST_Cancer_data.mat'); 
+% Plot Day 25
+[~, sort_id_ratio] = sortrows(ratio(:,1),'descend');
 
-Si_eFAST = squeeze(mean(rangeSi(:,:,:,1)))';
-Sti_eFAST = squeeze(mean(rangeSti(:,:,:,1)))';
-
-
-%% Sobol 
-load('./Sobol_Cancer_figures/Sobol_Cancer_data.mat');
-
-Si_Sobol= S_vec; 
-ST_Sobol= ST_vec; 
-
-
-%% Plot 
 figure(1)
-[~,ids] = sortrows(Si_eFAST(:,1),'descend');
+plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',30)
+title('Derivative ratio for day 25')
 
-plot(Si_eFAST(ids,1),'-*','LineWidth',2); 
-hold on; 
-plot(Si_Sobol(ids),'-*','LineWidth',2);
-hold on; 
-plot(ratio(ids,1),'-*','LineWidth',2);
-hold on; 
-plot(Gi(ids,1)/max(Gi(:,1)),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(ids),'FontSize',20)
-legend('eFAST First order', 'Sobol First order','Derivative ratio',...
-    'Derivative Gi')
 
-%--------- Total order 
+plotGi = Gi(:,1);
+[~, sort_id_Gi] = sortrows(plotGi(:,1),'descend');
+
 
 figure(2)
-[~,idst] = sortrows(Sti_eFAST(:,1),'descend');
+plot(Gi(sort_id_Gi,1),'-*','LineWidth',2);
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
 
-plot(Sti_eFAST(idst,1),'-*r','LineWidth',2); 
-hold on; 
-plot(ST_Sobol(idst),'-*blue','LineWidth',2);
-hold on; 
-plot(ratio(idst,1),'-*black','LineWidth',2);
-hold on; 
-plot(Gi(idst,1)/max(Gi(:,1)),'-*green','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
-legend('eFAST Total order', 'Sobol Total order','Derivative ratio',...
-    'Derivative Gi')
 
-%-------- Bar plot 
-figure(3)
-[~,idst] = sortrows(Sti_eFAST(:,1),'descend');
-combine = [Sti_eFAST(idst,1) ST_Sobol(idst) ratio(idst,1) ...
-    Gi(idst,1)/max(Gi(:,1))]
-bar(combine)
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
-legend('eFAST', 'Sobol','Derivative ratio', 'Derivative Gi')
-ylabel('Total order')
+%Plot day 50
+
+[~, sort_id_ratio] = sortrows(ratio(:,2),'descend');
 
 figure(4)
-[~,idst] = sortrows(ST_Sobol,'descend');
-combine = [ ST_Sobol(idst) ratio(idst,1) Gi(idst,1)/max(Gi(:,1))]
-bar(combine)
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
-legend('Sobol','Derivative ratio', 'Derivative Gi')
-ylabel('Total order')
+plot(ratio(sort_id_ratio,2),'-*','LineWidth',2);
+set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
+title('Derivative ratio for day 50')
 
+[~, sort_id_Gi] = sortrows(Gi(:,2),'descend');
+
+figure(5)
+plot(Gi(sort_id_Gi,2),'-*','LineWidth',2);
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
 

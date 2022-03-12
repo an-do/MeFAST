@@ -48,56 +48,38 @@ end
 %% Plotting analysis results
 % Day 2000
 [~, sort_id_ratio] = sortrows(ratio(:,1));
+
 figure(1)
 plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',25)
 title('Derivative ratio for day 2000')
 
-id_max= Gi(:,1)==max(Gi(:,1)); 
-plotGi = Gi;
-plotGi(id_max,1)=NaN;
-plotGi = plotGi/10e+9; 
-[~, sort_id_Gi] = sortrows(plotGi(:,1),'ascend');
+plotGi = Gi(:,1);
+[~, sort_id_Gi] = sortrows(plotGi(:,1),'descend');
 
 figure(2)
-plot(Gi(:,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',25)
-legend('Unsorted and include outlier')
-title('Derivative Gi for day 2000')
-
-figure(3)
 plot(plotGi(sort_id_Gi,1),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',25)
-legend('Sorted and remove outlier')
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
 title('Derivative Gi for day 2000')
-
 
 
 
 % Day 4000
 [~, sort_id_ratio] = sortrows(ratio(:,2));
-figure(1)
+
+figure(3)
 plot(ratio(sort_id_ratio,2),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',20)
 title('Derivative ratio for day 4000')
 
-id_max= Gi(:,2)==max(Gi(:,2)); 
-plotGi = Gi;
-plotGi(id_max,2)=NaN;
-plotGi = plotGi/10e+9; 
-[~, sort_id_Gi] = sortrows(plotGi(:,2),'ascend');
+plotGi = Gi(:,2);
+[~, sort_id_Gi] = sortrows(plotGi,'descend');
 
 figure(4)
-plot(Gi(:,2),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',20)
-legend('Unsorted and include outlier')
+plot(plotGi(sort_id_Gi),'-*','LineWidth',2);
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
 title('Derivative Gi for day 4000')
 
-figure(5)
-plot(plotGi(sort_id_Gi,2),'-*','LineWidth',2);
-set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
-legend('Sorted and remove outlier')
-title('Derivative Gi for day 2000')
-
+%% Convergence 
 
 

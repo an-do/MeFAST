@@ -1,6 +1,3 @@
-
-% 
-% % %% User input
 function [S, id] = DeFAST_analysis(filename,alpha, type,y_var,time_id)
 
 %% Load mat file 
@@ -162,7 +159,6 @@ mat = [0.5587    0.1129    0.4465;
 
 
 figure
-subplot(2,2,1)
 plot(dist,'-','LineWidth',3)
 set(gca, 'FontSize',fsz)
 xlabel(' NR')
@@ -170,12 +166,12 @@ ylabel({'Distribution',' Distance'})
 legend(Parameter_var)
 
 % number of signifcant parameters plot 
-subplot(2,2,3) 
+figure
 hold on
 plot(n_welch,'blue-','LineWidth',2); 
-%hold on; 
+hold on; 
 plot(n_wilcox,'green','LineWidth',2);
-%hold on; 
+hold on; 
 plot(n_permute,'black','LineWidth',2); 
 plot(n_ANOVA,'red','LineWidth',2); 
 legend('Student t-test', 'Wilcoxon', 'Permute test','ANOVA-Tukey')
@@ -185,129 +181,24 @@ ylim([1,K])
 xlabel('NR')
 ylabel({ '# significant', 'parameters'})
 
-% subplot(3,3,3)
-% plot(TDCC_welch,'blue-','LineWidth',2); 
-% hold on;
-% plot(TDCC_wilcox,'green-','LineWidth',2); 
-% hold on;
-% plot(TDCC_permute,'black-','LineWidth',2)
-% legend('Student t-test', 'Wilcoxon', 'Permute test')
-% set(gca, 'FontSize',fsz)
-% xlabel('NR')
-% ylabel({ 'TDCC'})
-
-
-% % student t-test p-value plot
-% subplot(3,3,4)
-% plot(p_welch');
-% hold on; 
-% yline(alpha/(K-1),'red-',[num2str(alpha*100/(K-1)),'%'],'LineWidth',3)
-% legend(Parameter_var(1:8),'Location' ,[0.03 0.54 0.01 0.01])
-% ylim([0,1])
-% ylabel({'Student-test','p-values'})
-% set(gca, 'FontSize',fsz)
-
-% % wilcoxon pvalue plot
-% subplot(3,3,5)
-% plot(p_wilcox');
-% hold on; 
-% yline(alpha/(K-1),'red-',[num2str(alpha*100/(K-1)),'%'],'LineWidth',3)
-% %legend(Parameter_var(1:8))
-% ylim([0,1])
-% ylabel({'Wilcoxon test','p-values'})
-% set(gca, 'FontSize',fsz)
-% 
-% %permutation pvalue plot 
-% subplot(3,3,6)
-% plot(p_permute');
-% hold on; 
-% yline(alpha/(K-1),'red-',[num2str(alpha*100/(K-1)),'%'],'LineWidth',3)
-% %legend(Parameter_var(1:8))
-% ylim([0,1])
-% ylabel({'Permutation test','p-values'})
-% set(gca, 'FontSize',fsz)
-% 
-% subplot(3,3,7)
-% errorbar(mean_S,std_S)
-% ylabel('Sensitivity index')
-% xlabel('Parameters')
-% ylim([0,1])
-% set(gca,'XTick',1:K,'XTickLabel',Parameter_var,'FontSize',10)
-
-subplot(2,2,4)
+figure 
 bar(barcombine, 'grouped')
 xticks([1:K-1]); 
 xticklabels(Parameter_var(id))
 ylabel([type, ' p-values'])
 set(gca, 'FontSize',fsz)
 legend('Student t-test', 'Wilcoxon', 'Permutation','ANOVA-Tukey')
-% 
-% subplot(3,3,9)
-% nhist(par, 'legend', Parameter_var,'Location' ,[0.9,0.18,0.1,0.1])
 
 par = Parameter_var(1:K-1);
 S_plot = S(1:K-1);
 
-subplot(2,2,2)
+figure
 ax = gca(); 
 h= pie(S_plot,par(id));
 set(findobj(h,'type','text'),'fontsize',20);
 newColors = rand(K,3); 
 ax.Colormap = newColors; 
 
-% figure; 
-% % student t-test p-value plot
-% %subplot(1,3,1)
-% ax = axes;
-% plot(p_welch',':','LineWidth',2);
-% ax.ColorOrder = mat;
-% hold on; 
-% yline(alpha/(K-1),'red-',[num2str(alpha*100/(K-1)),'%'],'LineWidth',3)
-% legend(Parameter_var)
-% ylim([0,.01])
-% ylabel({'Student-test','p-values'})
-% set(gca, 'FontSize',fsz)
-
-
-% wilcoxon pvalue plot
-%subplot(1,3,2)
-% figure;
-% ax = axes;
-% plot(p_wilcox',':','LineWidth',2);
-% ax.ColorOrder = mat;
-% hold on; 
-% yline(alpha/(K-1),'red-',[num2str(alpha*100/(K-1)),'%'],'LineWidth',3)
-% %legend(Parameter_var(1:8))
-% ylim([0,.01])
-% ylabel({'Wilcoxon test','p-values'})
-% set(gca, 'FontSize',fsz)
-
-%permutation pvalue plot 
-%subplot(1,3,3)
-% figure
-% ax = axes;
-% plot(p_permute',':','LineWidth',2);
-% ax.ColorOrder = mat;
-% hold on; 
-% yline(alpha/(K-1),'red-',[num2str(alpha*100/(K-1)),'%'],'LineWidth',3)
-% %legend(Parameter_var(1:8))
-% ylim([0,.01])
-% ylabel({'Permutation test','p-values'})
-% set(gca, 'FontSize',fsz)
-
-figure
-plot(n_welch,'blue-','LineWidth',2); 
-hold on; 
-plot(n_wilcox,'green','LineWidth',2);
-%hold on; 
-plot(n_permute,'black','LineWidth',2); 
-plot(n_ANOVA,'red','LineWidth',2); 
-legend('Student t-test', 'Wilcoxon', 'Permute test','ANOVA-Tukey')
-%     [0.75 0.85 0.01 0.01])
-set(gca, 'FontSize',fsz)
-ylim([1,K])
-xlabel('NR')
-ylabel({ '# significant', 'parameters'})
 
 end
 
