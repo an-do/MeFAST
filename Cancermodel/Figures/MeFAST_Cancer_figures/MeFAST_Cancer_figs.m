@@ -13,7 +13,7 @@
 % and is stored in Parameter_settings
 % 
 % Model parameters and range of uncertainty  
-disp('DeFAST analysis on Cancer model using pre-generated data.')
+disp('MeFAST analysis on Cancer model using pre-generated data.')
 
 
 % Parameter ranges setting is here 
@@ -26,26 +26,15 @@ time_points=[25 50]; %time points in days
 % To reproduce this result, run Tutorial_eFAST_HIV.mlx in the eFAST folder
 % We perform eFAST for $N_R =400$ with  on a paralellized 
 
-%% DeFAST analysis  
+%% DeFAST results- Total order sensitivity indices $S_tot$ 
 % results- First order sensitivity indices $S_i$ 
 % The last input of the function indicates the time point at which the analysis 
 % is avaluated. 1 = 25 days and 2 = 50 days
 
-%[S, id]=DeFAST_analysis('Defast_Cancer_data.mat',0.05,'Si',1,1)
 
-% Generate summary table of parameters and their associate first 
-% order sensitivity indices
+[Stot, id]= MeFAST_analysis('MeFAST_Cancer_data.mat',0.05,'Sti',1,1)
+[Stot, id]= MeFAST_analysis('MeFAST_Cancer_data.mat',0.05,'Sti',1,2)
 
-index = 1:max(id)
-tbl = table(index', Parameter_var(id),S(index));
-tbl.Properties.VariableNames= {'Index','Parameters','First order SI'}
-
-%% 
-%% DeFAST results- Total order sensitivity indices $S_tot$ 
-
-[Stot, id]=DeFAST_analysis('DeFAST_Cancer_data.mat',0.05,'Sti',1,1)
-tbl = table(index', Parameter_var(id),Stot(index));
-tbl.Properties.VariableNames= {'Index','Parameters','Total order SI'}
 
 warning('on');
 
