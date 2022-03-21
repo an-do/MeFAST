@@ -20,4 +20,4 @@ Overview of the repo:
 ![repo_overview]
 
 
-![This is an image](https://github.com/an-do/DeFAST/blob/main/repo_overview.pdf) 
+![This is an image](https://raw.githubusercontent.com/an-do/DeFAST/main/repo_overview.pdf) 
