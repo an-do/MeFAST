@@ -38,7 +38,7 @@ resampling scheme.  The resampling size NR is the number of times that the schem
 
 4. *Convergence test*. We use the two-sample Komogorov-Smirnov (K-S) test to check for the covergence of sensitivity indices distributions. Specifically, for each NR, we calculate the K-S distance between sampling sensitivity indices distributions of sizes NR and (NR − 1). A distribution is converged if the K-S statistics between the two consecutive distributions is significantly less than 0.05. 
 
-6. *Dummy parameters*. A parameter that does not appear in the model and does not affect the model in anyway is called a "dummy parameter", which should be assigned with zero sensitivity indices. However, DeFAST still assigns it with a small and non-zero values. We utilize the usage of the hypothesis test to determine the significance of parameters. Specifically, we compare the sensitivity indices distribution mean of each model parameter Xi with that of the dummy parameter. If the average sensitivity indices of Xi are significantly less than that of the dummy then it is considered to be insignificant, otherwise it is significant.
+6. *Dummy parameters*. A parameter that does not appear in the model and does not affect the model in anyway is called a "dummy parameter", which should be assigned with zero sensitivity indices. However, MeFAST still assigns it with a small and non-zero values. We utilize the usage of the hypothesis test to determine the significance of parameters. Specifically, we compare the sensitivity indices distribution mean of each model parameter Xi with that of the dummy parameter. If the average sensitivity indices of Xi are significantly less than that of the dummy then it is considered to be insignificant, otherwise it is significant.
 
 5. *Statistical analysis*. We implement 4 statistical tests to determine the significance of parameters including: 
     * Two sample student t-test
@@ -48,7 +48,7 @@ resampling scheme.  The resampling size NR is the number of times that the schem
     
 When multiple pairwise hypothesis tests such as student t-test, Wilcoxon, Permutation test are carried out, the likelihood of incorrectly rejecting a null hypothesis (Type 1 error) also increases. The Bonferroni correction is needed to control for occurrence of false positives. Specifically, the critical p-value needs to be divided by the number of hypotheses tests perform. 
 
-Below is the overall DeFAST scheme: 
+Below is the overall MeFAST scheme: 
 
 
 ![efast_algorithm](https://user-images.githubusercontent.com/20584697/122826422-f8bd9200-d297-11eb-989a-4f01365e5229.png)
