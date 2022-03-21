@@ -15,14 +15,14 @@
 % infected T cells ($T^*$) that contains provirus but yet to produce new viruses 
 % and 3) actively infected T cells ($T^{**}$) that produce new viruses 4) free 
 % virus (V)
-%
-% 
-clear; close all; clc; 
+ 
+clear; 
+close all; 
+clc; 
 
 % Model parameters and range of uncertainty  
-disp('DeFAST analysis on HIV model using pre-generated data.')
+disp('MeFAST analysis on HIV model using pre-generated data.')
 disp('Run time is about 10 minutes')
-
 
 % Parameter ranges setting is here 
 Parameter_settings;
@@ -35,26 +35,15 @@ time_points=[2000 4000]; %time points in days
 
 %% Sensitivity indices were generated and saved as eFAST_data.mat
 % To reproduce this result, run Tutorial_eFAST_HIV.mlx in the eFAST folder
-% We perform eFAST for $N_R =400$ with  on a paralellized 
+% We perform MeFAST for $N_R =400$ with  on a paralellized 
 
-%% DeFAST results- First order sensitivity indices $S_i$ at 2000 days
-% The last input of the function indicates the time point at which the analysis 
-% is avaluated. 1 = 2000 days and 2 = 4000 days
 
-%[S, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Si',4,1);
+%% DeFAST results- Total order sensitivity indices $S_ti$ at 2000 days
 
-% Summary table of parameters and their associate first 
-% order sensitivity indices
+[Stot, id]=MeFAST_analysis('MeFAST_HIV_data.mat',0.05,'Sti',4,1);
 
-% index = 1:max(id);
-% tbl = table(index', Parameter_var(id),S(index))
-% tbl.Properties.VariableNames= {'Index','Parameters','First order SI'}
-%  
-%% DeFAST results- Total order sensitivity indices $S_i$ at 2000 days
-
-[Stot, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Sti',4,1);
-tbl = table(index', Parameter_var(id),Stot(index))
-tbl.Properties.VariableNames= {'Index','Parameters','Total order SI'}
-%% 
-% 
 %% DeFAST results- Total order sensitivity indices $S_ti$ at 4000 days
+
+[Stot, id]=MeFAST_analysis('MeFAST_HIV_data.mat',0.05,'Sti',4,2);
+
+
