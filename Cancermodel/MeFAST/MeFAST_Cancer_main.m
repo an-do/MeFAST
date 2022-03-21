@@ -30,6 +30,7 @@ time_points=[25, 50]; %time points of interest in days
 % See runtime.csv for more details
 
 NR = 40; %400; %resampling size
+
 parpool %turn on to use parallel computing in cluster
 tic 
 [rangeSi, rangeSti] = Model_efast(NR,pmin,pmax,...
@@ -40,25 +41,13 @@ dlmwrite('runtime.csv',[NR,elapse],'-append') % save elapse time.
 
 delete(gcp('nocreate')) % turn off parallel computing
 
-%% DeFAST analysis  
+%% DeFAST results- Total order sensitivity indices $S_tot$ 
 % results- First order sensitivity indices $S_i$ 
 % The last input of the function indicates the time point at which the analysis 
 % is avaluated. 1 = 25 days and 2 = 50 days
 
-[S, id]=DeFAST_analysis('efast_Cancer_data.mat',0.05,'Si',1,1)
+[S, id] = MeFAST_analysis('Mefast_Cancer_data.mat',0.05,'Sti',1,1)
+[Stot, id] = MeFAST_analysis('MeFAST_Cancer_data.mat',0.05,'Sti',1,2)
 
-% Generate summary table of parameters and their associate first 
-% order sensitivity indices
-
-index = 1:max(id)
-tbl = table(index', Parameter_var(id),S(index));
-tbl.Properties.VariableNames= {'Index','Parameters','First order SI'}
-
-%% 
-%% DeFAST results- Total order sensitivity indices $S_tot$ 
-
-[Stot, id]=DeFAST_analysis('eFAST_Cancer_data.mat',0.05,'Sti',1,2)
-tbl = table(index', Parameter_var(id),Stot(index));
-tbl.Properties.VariableNames= {'Index','Parameters','Total order SI'}
 
 warning('on');

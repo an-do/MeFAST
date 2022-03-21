@@ -1,8 +1,5 @@
-
-% 
-% % %% User input
-function [S, id] = DeFAST_analysis(filename,alpha, type,y_var,time_id)
-disp(['Compiling DeFAST result for ',type])
+function [S, id] = MeFAST_analysis(filename,alpha, type,y_var,time_id)
+disp(['Compiling MeFAST result for ',type])
 
 %% Load mat file 
 %input: filename = rangeSi.mat
