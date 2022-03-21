@@ -30,7 +30,7 @@ We conduct the MeFAST analysis using the viral load after 2000 days as a metric 
 ![eFAST_HIV_STi_day2000](https://user-images.githubusercontent.com/20584697/122861113-bca82280-d2d3-11eb-8ede-625b9d4d9624.png)
 
 
-Parameter μV (the death rate of free virus), NV (the number of free viruses produced by infected T cells), and k2 (the rate latently infected cells convert to actively infected) contribute most to the model output's variation. In panel C, it can be seen that the sensitivity indices converges. Applying the ANOVA-Tukey test for statistically significant parameter, it can be shown that there are three important parameters, namely μV ,NV ,k2while, the student t-test, Wilcoxon and Permutation test’s conclusions fluctuate between 3-4 important parameters.
+Parameter μV (the death rate of free virus), NV (the number of free viruses produced by infected T cells), and k2 (the rate latently infected cells convert to actively infected) contribute most to the model output's variation. In panel C, it can be seen that the sensitivity indices converges. Applying the ANOVA-Tukey test for statistically significant parameters, it can be shown that there are three important parameters, namely μV ,NV ,k2 while, the student t-test, Wilcoxon and Permutation test’s conclusions fluctuate between 3-4 important parameters.
 
 
 We combine the ranking of MeFAST, Sobol's method, and DGSM and conclude the following parameters to be important: 1) the death  rate of free virus (μV ), 2) the number of free viruses produced by infected T cells (NV ), 3) the rate latently infected cells convert to actively infected (k2), and 4) the rate at which T cells becoming infected by free viruses (k1). 
