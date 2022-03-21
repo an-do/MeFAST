@@ -9,7 +9,7 @@ This repository contains 2 directories associated with the two mathematical mode
 2.	MeFAST, DGSM, SobolMethod folders: implementation of each method (DGSM, MeFAST, Sobol) is to help reproduce our results. 
 
 ## Reproducing results and figures in the manuscript
-1.	Pre-simulated results are stored as .mat file under Figures folder of each model (E.g. https://github.com/an-do/DeFAST/tree/main/HIVmodel/Figures). To consolidate all figures for each model as reported in the manuscript, please excute combine_methods_fig.m. 
+1.	Pre-simulated results are stored as .mat file under Figures folder of each model. To consolidate all figures for each model as reported in the manuscript, please excute combine_methods_fig.m. 
 2.	To reproduce analysis figures as illustrated in the manuscript for any particular method, for example, MeFAST, please visit MeFAST_HIV_figures (or MeFAST_Cancer_figures) folder and execute the function MeFAST_HIV_figs.m (or MeFAST_Cancer_figs.m). 
 3.	Please note, all figures generated from the Figures folder are based on the pre-simulated data. To reproduce all simulations and calculations, please visit the following folder: DGSM, MeFAST or SobolMethod and execute following functions:
     - MeFAST_Cancer_main.m or MeFAST_HIV_main.m: MeFAST study for cancer and HIV model
