@@ -1,6 +1,6 @@
 % AUTHOR: An Do Dela 
 % Date: May 28, 2021
-% Purpose DeFAST simulation HIV model 
+% Purpose MeFAST simulation HIV model 
 
 %% System of differential equations 
 % The model consists of a system of ordinary differential equations (ODEs) that 
@@ -46,27 +46,13 @@ tic
 [rangeSi, rangeSti] = Model_efast(NR,pmin,pmax,...
    time_points, @ODE_model);
 elapse = toc;
-dlmwrite('DeFAST_runtime.csv',[NR,elapse],'-append') % save elapse time. 
+dlmwrite('MeFAST_runtime.csv',[NR,elapse],'-append') % save elapse time. 
 delete(gcp('nocreate')) % turn off parallel computing
 
-%% DeFAST analysis  
-% results- First order sensitivity indices $S_i$ at 2000 days
-% The last input of the function indicates the time point at which the analysis 
-% is avaluated. 1 = 2000 days and 2 = 4000 days
 
-[S, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Si',4,1)
+%% MeFAST results- Total order sensitivity indices $S_i$ at 2000 days
 
-% Generate summary table of parameters and their associate first 
-% order sensitivity indices
-
-index = 1:max(id)
-tbl = table(index', Parameter_var(id),S(index));
-tbl.Properties.VariableNames= {'Index','Parameters','First order SI'}
-
-%% 
-%% DeFAST results- Total order sensitivity indices $S_i$ at 2000 days
-
-[Stot, id]=DeFAST_analysis('DeFAST_HIV_data.mat',0.05,'Sti',4,2)
+[Stot, id]= MeFAST_analysis('MeFAST_HIV_data.mat',0.05,'Sti',4,2)
 tbl = table(index', Parameter_var(id),Stot(index));
 tbl.Properties.VariableNames= {'Index','Parameters','Total order SI'}
 
