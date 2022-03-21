@@ -17,7 +17,6 @@ This repository contains 2 directories associated with the two mathematical mode
     - Sobol_Cancer_main.m or Sobol_HIV_main.m: Sobol’s method study for cancer and HIV model
 
 Overview of the repo: 
-![repo_overview]
+![repo_overview](https://raw.githubusercontent.com/an-do/DeFAST/main/repo_overview.pdf) 
 
 
-![This is an image](https://raw.githubusercontent.com/an-do/DeFAST/main/repo_overview.pdf) 
