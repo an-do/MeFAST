@@ -24,7 +24,7 @@ for i =1:nT % timepoint
 end
 
 %% For eFAST
-load('./DeFAST_HIV_figures/DeFAST_HIV_data.mat'); 
+load('./MeFAST_HIV_figures/MeFAST_HIV_data.mat'); 
 
 Si_eFAST = squeeze(mean(rangeSi(:,:,:,4)))';
 Sti_eFAST = squeeze(mean(rangeSti(:,:,:,4)))';
@@ -47,13 +47,8 @@ figure(2)
 plot(Sti_eFAST(idst,1),'-*r','LineWidth',2); 
 hold on; 
 plot(ST_Sobol(idst),'-*blue','LineWidth',2);
-% hold on; 
-% plot(ratio(ids,1),'-*','LineWidth',2);
-% hold on; 
-%  plot(Gi(ids,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',30)
-%legend('eFAST Total order', 'Sobol Total order','Derivative ratio', 'Derivative Gi')
-legend('DeFAST Total order', 'Sobol Total order')
+legend('MeFAST Total order', 'Sobol Total order')
 
 
 plotGi = Gi(:,1);
@@ -80,13 +75,8 @@ figure(3)
 plot(Sti_eFAST(idst,2),'-*r','LineWidth',2); 
 hold on; 
 plot(ST_Sobol(idst),'-*blue','LineWidth',2);
-% hold on; 
-% plot(ratio(ids,1),'-*','LineWidth',2);
-% hold on; 
-%  plot(Gi(ids,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',30)
-%legend('eFAST Total order', 'Sobol Total order','Derivative ratio', 'Derivative Gi')
-legend('DeFAST Total order', 'Sobol Total order')
+legend('MeFAST Total order', 'Sobol Total order')
 
 
 plotGi = Gi(:,2);
@@ -98,10 +88,10 @@ set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'Font
 title('Derivative Gi for day 4000')
 
 [~, sort_id_ratio] = sortrows(ratio(:,1),'descend');
-figure(12)
+figure(13)
 plot(ratio(sort_id_ratio,1),'-*','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(sort_id_ratio),'FontSize',30)
-title('Derivative ratio for day 42000')
+title('Derivative ratio for day 4000')
 
 
 
