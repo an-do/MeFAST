@@ -1,2 +1,2 @@
-Execute DeFAST_HIV_figs.m to generate DGSM analysis figures for HIV model on the precalculated sensitivity indices stored in
-DeFAST_HIV_data.mat
+MeFAST_HIV_figs.m: Generate MeFAST analysis figures 
+MeFAST_analysis.m: post-process MeFAST sensitivity indices
