@@ -15,24 +15,16 @@ The model consists of four ordinary differential equations and contains a total 
 
 ![HIVmodel](https://user-images.githubusercontent.com/20584697/122605364-30c09d00-d02c-11eb-9459-6e08a5fac45f.png)
 
+Our goal is to find the subset of important parameters to a specified model outcomes. 
+
 ## To generate figures in the manuscript 
 
-All pre-simulated results are stored under Figures folder. To generate all figures as reported in the manuscript, please execute the function combine_methods_fig.m to generate under Figures folder (https://github.com/an-do/DeFAST/tree/main/HIVmodel/Figures)
+All pre-simulated results are stored under Figures folder. To generate all figures as reported in the manuscript, please execute the function combine_methods_fig.m to generate under Figures folder (https://github.com/an-do/MeFAST/tree/main/HIVmodel/Figures)
 
 ## To reproduce all model simulations and calculation of sensitivity indices
 
 To reproduce our simulations and calculations, please visit any particular method of your interest (MeFAST, SobolMethod or DGSM) in this directory then excute the function [method]_[model]_main (E.g. MeFAST_HIV_main) 
 
-
-## Results
-We conduct the MeFAST analysis using the viral load after 2000 days as a metric and display the ranking of important parameters below:
-
-![eFAST_HIV_STi_day2000](https://user-images.githubusercontent.com/20584697/122861113-bca82280-d2d3-11eb-8ede-625b9d4d9624.png)
-
-
-We combine the rankings of MeFAST, Sobol's method, and DGSM in the following figure
-
-![HIV_analysis](https://user-images.githubusercontent.com/20584697/122860895-60dd9980-d2d3-11eb-9e28-a73beaa29ced.png)
 
 
 ## References 
