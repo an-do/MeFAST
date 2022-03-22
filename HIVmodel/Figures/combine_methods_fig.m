@@ -48,7 +48,7 @@ plot(Sti_eFAST(idst,1),'-*r','LineWidth',2);
 hold on; 
 plot(ST_Sobol(idst),'-*blue','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',30)
-legend('MeFAST Total order', 'Sobol Total order')
+legend('MeFAST', 'Sobol method')
 
 
 plotGi = Gi(:,1);
