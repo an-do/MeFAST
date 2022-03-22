@@ -13,7 +13,7 @@ The model is given below:
 
 # Objective goal
 Our primary goal is to find which parameters are important to the cancer volume using 3 sensitivity analysis methods: 
-1. DeFAST
+1. MeFAST
 2. Sobol's method
 3. Derivative global sensitivity measure. 
  
