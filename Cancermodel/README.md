@@ -20,11 +20,11 @@ Our primary goal is to find which parameters are important to the cancer volume 
 
 ## To generate figures in the manuscript 
 
-All pre-simulated results are stored under Figures folder. To generate all figures as reported in the manuscript, please execute the function combine_methods_fig.m to generate under Figures folder (https://github.com/an-do/MeFAST/tree/main/Cancermodel/Figures)
+All pre-simulated results are stored under Figures folder. To generate all figures as reported in the manuscript, please execute the function combine_methods_fig.m (https://github.com/an-do/MeFAST/tree/main/Cancermodel/Figures)
 
 ## To reproduce all model simulations and calculation of sensitivity indices
 
-To reproduce our simulations and calculations, please visit any particular method of your interest (MeFAST, SobolMethod or DGSM) in this directory then excute the function [method]_[model]_main (E.g. MeFAST_Cancer_main) 
+To reproduce our simulations and calculations, please visit any particular method of interest (MeFAST, SobolMethod or DGSM) then excute the function [method]_[model]_main (E.g. MeFAST_Cancer_main) 
  
 
 # Reference 
