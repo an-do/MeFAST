@@ -6,8 +6,8 @@ Parameter_settings;
 
 
 %% For eFAST
-load('./DeFAST_Cancer_figures/DeFAST_Cancer_data.mat'); 
-
+load('./MeFAST_Cancer_figures/MeFAST_Cancer_data.mat'); 
+K = length(Parameter_var);
 Si_eFAST = squeeze(mean(rangeSi(:,:,:,1)))';
 Sti_eFAST = squeeze(mean(rangeSti(:,:,:,1)))';
 
@@ -29,10 +29,9 @@ plot(Sti_eFAST(idst,1),'-*r','LineWidth',2);
 hold on; 
 plot(ST_Sobol(idst),'-*blue','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
-legend('DeFAST Total order', 'Sobol Total order')
-title('day 25')
+legend('MeFAST Total order', 'Sobol Total order')
+title('Day 25')
 %--------- Total order 
-
 figure(21)
 [~,idst] = sortrows(Sti_eFAST(:,2),'descend');
 
@@ -40,8 +39,8 @@ plot(Sti_eFAST(idst,2),'-*r','LineWidth',2);
 hold on; 
 plot(ST_Sobol(idst),'-*blue','LineWidth',2);
 set(gca,'XTick',1:K,'XTickLabel',Parameter_var(idst),'FontSize',20)
-legend('DeFAST Total order', 'Sobol Total order')
-title('day 50')
+legend('MeFAST Total order', 'Sobol Total order')
+title('Day 50')
 
 %% Plotting DGSM ratio and Gi for each parameter
 load('./DGSM_Cancer_figures/Derivative_Cancer_data.mat')
@@ -76,10 +75,9 @@ plotGi = Gi(:,1);
 figure(2)
 plot(Gi(sort_id_Gi,1),'-*','LineWidth',2);
 set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',20)
-
+title('Gi day 25')
 
 %Plot day 50
-
 [~, sort_id_ratio] = sortrows(ratio(:,2),'descend');
 
 figure(4)
@@ -91,5 +89,7 @@ title('Derivative ratio for day 50')
 
 figure(5)
 plot(Gi(sort_id_Gi,2),'-*','LineWidth',2);
-set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),'FontSize',30)
+set(gca,'YScale', 'log','XTick',1:K,'XTickLabel',Parameter_var(sort_id_Gi),...
+    'FontSize',30)
+title('Gi day 50')
 
