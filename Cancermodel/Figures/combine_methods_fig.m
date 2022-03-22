@@ -1,6 +1,6 @@
-%HIV model: timepoint of interest 2000 days. The model is already reached
-%the steady state. Marino performed the sensitivity at 2000 days and 4000
-%days but both analysis is identical 
+%HIV model: combine ranking of all methods as shown in the manuscript
+
+
 clear; close all; clc 
 Parameter_settings;
 
