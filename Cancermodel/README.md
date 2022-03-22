@@ -12,17 +12,11 @@ The model is given below:
 ![Cancer](https://user-images.githubusercontent.com/20584697/122597919-eede2980-d020-11eb-96e2-e8d2b1a721ae.png)
 
 # Objective goal
-There are 15 parameters in the model, whose ranges of uncertainties are discussed in the manuscript. Our primary goal is to find which parameters are important to the cancer volume so we can focus in finding better estimates. We implemented 3 methods: 
+Our primary goal is to find which parameters are important to the cancer volume using 3 sensitivity analysis methods: 
 1. DeFAST
 2. Sobol's method
 3. Derivative global sensitivity measure. 
  
-# Result
-We perform DeFAST for NR up to 400. The maximum frequencies ωmax is
-kept at 8. Our DeFAST analysis is displayed below: 
 
-<img width="617" alt="Screen Shot 2021-06-22 at 3 11 15 PM" src="https://user-images.githubusercontent.com/20584697/123006765-0a249e00-d36d-11eb-8b16-59ec2c994abb.png">
-
-We combine DeFAST’s result with Sobol’s method and DGSM.
 # Reference 
 de Pillis, Lisette G., Ami E. Radunskaya, and Charles L. Wiseman. "A validated mathematical model of cell-mediated immune response to tumor growth." Cancer research 65.17 (2005): 7950-7958.
